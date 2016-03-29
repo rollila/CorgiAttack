@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dogegame.CSharp.Plugins", "Dogegame.CSharp.Plugins.csproj", "{5E993973-746D-5F3C-A54A-E0DE12E25056}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dogegame.CSharp", "Dogegame.CSharp.csproj", "{1A3A12C7-491C-580A-0EDB-46288A4D326B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dogegame.CSharp.Editor", "Dogegame.CSharp.Editor.csproj", "{BD262AC8-B1F3-5CA2-FEAD-B648706CE42A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E993973-746D-5F3C-A54A-E0DE12E25056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E993973-746D-5F3C-A54A-E0DE12E25056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E993973-746D-5F3C-A54A-E0DE12E25056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E993973-746D-5F3C-A54A-E0DE12E25056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A3A12C7-491C-580A-0EDB-46288A4D326B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3A12C7-491C-580A-0EDB-46288A4D326B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3A12C7-491C-580A-0EDB-46288A4D326B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A3A12C7-491C-580A-0EDB-46288A4D326B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD262AC8-B1F3-5CA2-FEAD-B648706CE42A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD262AC8-B1F3-5CA2-FEAD-B648706CE42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD262AC8-B1F3-5CA2-FEAD-B648706CE42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD262AC8-B1F3-5CA2-FEAD-B648706CE42A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
