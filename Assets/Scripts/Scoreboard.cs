@@ -49,18 +49,19 @@ public class Scoreboard : MonoBehaviour
         int i = 0;
         foreach (Score s in scores)
         {
-            if (i >= 5 || i > scores.Count-1)
+            if (i >= 10 || i > scores.Count-1)
             {
                 break;
             }
             Debug.Log(i + "" + s.name + ""+ scores.Count);
-            Transform ScorePanel = ScoreBoard.transform.Find("ScorePanel " + i);
+            Transform ScorePanel = ScoreBoard.transform.Find("ScorePanel (" + i+")");
+            ScorePanel.transform.Find("Rank").GetComponent<Text>().text = i+1 + "";
             ScorePanel.transform.Find("Score").GetComponent<Text>().text = s.points + "";
             ScorePanel.transform.Find("Name").GetComponent<Text>().text = s.name;
 
             if (!s.Equals(player))
             {
-                //Player gets top 10 highscore: Do things
+                //Player gets top 5 highscore: Do things
             }
             i++;
         }

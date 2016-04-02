@@ -31,6 +31,7 @@ public class FirebaseAPI : MonoBehaviour
     public void TestButton()
     {
         //TESTING:
+        //PostScore("Me2", 2);
         _board.SetPlayer("eioleolemassa", 0);
         _board.ShowScores();
     }
@@ -122,7 +123,7 @@ public class FirebaseAPI : MonoBehaviour
             scores.Add(temp);
         }
 
-        Debug.Log("Recieved from server scores:" +scores.Count);
+        Debug.Log("Fetched and recieved from server scores:" +scores.Count);
         scoreCache = scores;
     }
 }
