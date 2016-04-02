@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\FirebaseAPI.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\lib\JSON.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\CookieJar.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\DiskCache.cs" />
@@ -53,6 +54,7 @@
      <Compile Include="Assets\Scripts\HTTP Library\src\Response.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\ResponseCallbackDispatcher.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\StreamedWWWForm.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

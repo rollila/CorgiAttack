@@ -5,118 +5,66 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent (typeof(Score))]
+[RequireComponent (typeof(FirebaseAPI))]
 public class Scoreboard : MonoBehaviour
 {
 
-    private string url = "https://fiery-heat-9158.firebaseio.com/corgiScores.json";
+    public static Score player;
+    public GameObject ScoreBoard;
 
-    // Use this for initialization
-    void Start()
+    //Scripts
+    public FirebaseAPI _firebase;
+
+    void Awake()
     {
-        //SendScoreButtonPress();
-        //GetScores();
+        _firebase = GetComponent<FirebaseAPI>();
     }
 
-    void SendScoreButtonPress()
+    public void SetPlayer(string name, int points)
     {
-        //TODO:
-        string playerName = "tester"; //set from input, max 10 letters (validation set in firebase)
-        int playerScore = 5; //set playerScore
+        //Score-object of this player is in player
+        player = new Score();
+        player.name = name;
+        player.points = points;
+    }
 
-        if (playerName == null)
+    public void ReturnToStartScreenButton()
+    {
+        //Probably need this button
+    }
+
+    public void ShowScores()
+    {
+        List<Score> scores = new List<Score>();
+        scores = _firebase.GetScores();
+
+        //Firebasen pitäis olla järjestyksessä mutta ei ollu. Kunnes kexin kuinka Firebasen saa järjestykseen ni tää pitää sorttaa:
+        scores.Sort((Score x, Score y) => { return x.points.CompareTo(y.points); });
+
+        scores.Reverse();
+
+
+        //Debug.Log("Got a list with " + scores.Count);
+        int i = 0;
+        foreach (Score s in scores)
         {
-            //validate name?
+            if (i >= 5 || i > scores.Count-1)
+            {
+                break;
+            }
+            Debug.Log(i + "" + s.name + ""+ scores.Count);
+            Transform ScorePanel = ScoreBoard.transform.Find("ScorePanel " + i);
+            ScorePanel.transform.Find("Score").GetComponent<Text>().text = s.points + "";
+            ScorePanel.transform.Find("Name").GetComponent<Text>().text = s.name;
+
+            if (!s.Equals(player))
+            {
+                //Player gets top 10 highscore: Do things
+            }
+            i++;
         }
-
-        playerName = playerName.Trim();
-
-        PostScore(playerName, playerScore);
-
-    }
-
-    void PostScore(string name, int score)
-    {
-        Hashtable data = new Hashtable();
-        data.Add("name", name);
-        data.Add("score", score);
-
-        HTTP.Request theRequest = new HTTP.Request("post", url, data);
-        theRequest.Send((request) =>
-        {
-            bool result = false;
-            Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text, ref result);
-            if (!result)
-            {
-                //ERROR:
-                Debug.LogWarning("Could not parse JSON response!");
-                return;
-            }
-            else
-            {
-                //HTTP POST worked:
-                Debug.Log("POSTed");
-            }
-        });
-    }
-
-    void GetScores()
-    {
-        //List<> scores = new List<>();
-        HTTP.Request someRequest = new HTTP.Request("get", url);
-        someRequest.Send((request) => {
-            Hashtable decoded = (Hashtable)JSON.JsonDecode(request.response.Text);
-            if(decoded == null) 
-            {
-                Debug.LogError("server returned null or     malformed response ):");
-                return;
-            }
-
-            foreach (DictionaryEntry json in decoded)
-            {
-                Hashtable jsonObj = (Hashtable)json.Value;
-                string name = (string)jsonObj["name"];
-                int score = (int)jsonObj["score"];
-
-                //scores.Add(name+" "+score);
-
-                Debug.Log("GET RESULT:"+name + " " + score);
-            }
-        });
     }
 }
 
-        /* Does not workerino
-        void PostScore(string name, int score)
-        {
-            WWWForm form = new WWWForm();
-            form.AddField("name", name);
-            form.AddField("score", score);
-
-            WWW www = new WWW(url, form);
-            StartCoroutine(WaitForRequest(www));
-            Debug.Log(url);
-        }
-
-        void GetScores()
-        {
-            WWW www = new WWW(url);
-            StartCoroutine(WaitForRequest(www));
-        }
-
-        IEnumerator WaitForRequest(WWW www)
-        {
-
-            yield return www;
-
-            // TODO: PROPER ERRORCHECKING:
-            if (www.error == null)
-            {
-                Debug.Log("WWW Ok!: " + www.text);
-                //Data: www.text
-            }
-            else {
-                Debug.Log("WWW Error: " + www.error + www.text);
-            }
-        }
-        */
 
