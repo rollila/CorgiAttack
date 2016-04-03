@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\HTTP Library\src\StreamedWWWForm.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
+     <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
