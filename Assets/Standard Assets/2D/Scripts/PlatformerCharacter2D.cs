@@ -46,15 +46,18 @@ namespace UnityStandardAssets._2D
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
             }
+
+            //Oon nyt asettanut animaattoriin booleanin "Ground" joka on oltava TRUE, jotta corgi voi pompata
             m_Anim.SetBool("Ground", m_Grounded);
 
-            // Set the vertical animation
-            m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+            // Animaation nopeuttaminen voidaan tehdä tässä
+            //m_Anim.SetFloat("speed", m_Rigidbody2D.velocity.y);
         }
 
 
         public void Move(float move, bool crouch, bool jump)
         {
+            /*
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
             {
@@ -67,7 +70,7 @@ namespace UnityStandardAssets._2D
 
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
-
+            
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
@@ -81,7 +84,7 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.velocity = new Vector2(moveSpeed, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...
-                /*if (move > 0 && !m_FacingRight)
+                if (move > 0 && !m_FacingRight)
                 {
                     // ... flip the player.
                     Flip();
@@ -91,8 +94,10 @@ namespace UnityStandardAssets._2D
                 {
                     // ... flip the player.
                     Flip();
-                }*/
-            }
+                }
+     
+            }*/
+
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))
             {
@@ -103,7 +108,7 @@ namespace UnityStandardAssets._2D
             }
         }
 
-
+        /*
         private void Flip()
         {
             // Switch the way the player is labelled as facing.
@@ -113,6 +118,6 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
-        }
+        }*/
     }
 }
