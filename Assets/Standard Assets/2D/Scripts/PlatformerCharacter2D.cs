@@ -62,6 +62,7 @@ namespace UnityStandardAssets._2D
             {
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
+                    Debug.Log("Grounded..");
             }
 
             //Oon nyt asettanut animaattoriin booleanin "Ground" joka on oltava TRUE, jotta corgi voi pompata
