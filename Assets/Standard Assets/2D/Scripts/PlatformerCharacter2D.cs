@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets._2D
 {
@@ -13,7 +14,6 @@ namespace UnityStandardAssets._2D
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-        private bool m_Grounded;            // Whether or not the player is grounded.
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator m_Anim;            // Reference to the player's animator component.
@@ -21,6 +21,19 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         private float moveSpeed;
+
+        //Booleaneja ja speed animaatioita varten:
+        private bool m_Grounded;            // Onko pelaaja maassa
+        private bool m_Doublejump;          // Käsky tuplahypätä
+
+        //Score
+        public float playerScore;
+        private Transform points;
+
+        public void UpdateScore()
+        {
+            points.GetComponent<Text>().text = (int)playerScore + "";
+        }
 
         private void Awake()
         {
@@ -30,6 +43,8 @@ namespace UnityStandardAssets._2D
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             moveSpeed = 3f;
+            playerScore = 0;
+            points = GameObject.Find("Canvas").transform.FindChild("BottomUIBar").FindChild("Points");
         }
 
 
@@ -37,6 +52,8 @@ namespace UnityStandardAssets._2D
         {
             moveSpeed += 0.01f;
             m_Grounded = false;
+            playerScore += 0.1f * moveSpeed;
+            UpdateScore();
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -50,8 +67,14 @@ namespace UnityStandardAssets._2D
             //Oon nyt asettanut animaattoriin booleanin "Ground" joka on oltava TRUE, jotta corgi voi pompata
             m_Anim.SetBool("Ground", m_Grounded);
 
+            //corgin tippumisanimaatio
+            if (!m_Grounded && m_Rigidbody2D.velocity.y < 0)
+            {
+                m_Anim.SetBool("Falling", true);
+            }
+
             // Animaation nopeuttaminen voidaan tehdä tässä
-            //m_Anim.SetFloat("speed", m_Rigidbody2D.velocity.y);
+            //m_Anim.SetFloat("Speed", moveSpeed);
         }
 
 
@@ -104,7 +127,11 @@ namespace UnityStandardAssets._2D
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
+                m_Anim.SetBool("Falling", false);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
+
+
             }
         }
 
