@@ -9,6 +9,7 @@ namespace UnityStandardAssets._2D
     {
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
+        private bool m_Dash;
 
 
         private void Awake()
@@ -24,6 +25,12 @@ namespace UnityStandardAssets._2D
                 // Read the jump input in Update so button presses aren't missed.
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+
+            if (!m_Dash)
+            {
+                //Fire1 for Dash? Pitää asettaa oikee Edit -> Project Settings -> Input Settings...
+                m_Dash = CrossPlatformInputManager.GetButtonDown("Fire1");
+            }
         }
 
 
@@ -33,8 +40,9 @@ namespace UnityStandardAssets._2D
             bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
-            m_Character.Move(h, crouch, m_Jump);
+            m_Character.Move(h, m_Dash, m_Jump);
             m_Jump = false;
+            m_Dash = false;
         }
     }
 }
