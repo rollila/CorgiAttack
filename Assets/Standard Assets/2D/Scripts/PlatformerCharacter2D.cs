@@ -8,6 +8,7 @@ namespace UnityStandardAssets._2D
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
+        [SerializeField] private float m_DashForce = 400f;
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -62,7 +63,6 @@ namespace UnityStandardAssets._2D
             {
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
-                    Debug.Log("Grounded..");
             }
 
             //Oon nyt asettanut animaattoriin booleanin "Ground" joka on oltava TRUE, jotta corgi voi pompata
@@ -79,7 +79,7 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void Move(float move, bool crouch, bool jump)
+        public void Move(float move, bool dash, bool jump)
         {
             /*
             // If crouching, check to see if the character can stand up
@@ -132,7 +132,19 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                 m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
 
+            }
 
+
+            //en tiiä toimiiko tää oikein ku toi liikkuminen ei toimi oikein, mut ainaki se tönii corgia eteenpäin (hiiren vasen)
+            if (dash && !m_Anim.GetBool("Dash"))
+            {
+                m_Anim.SetBool("Dash", true);
+                m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f));
+            }
+
+            if (!dash && m_Anim.GetBool("Dash"))
+            {
+                m_Anim.SetBool("Dash", false);
             }
         }
 
