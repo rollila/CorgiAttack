@@ -8,7 +8,6 @@ namespace UnityStandardAssets._2D
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
-        [SerializeField] private float m_DashForce = 400f;
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -69,7 +68,7 @@ namespace UnityStandardAssets._2D
             m_Anim.SetBool("Ground", m_Grounded);
 
             //corgin tippumisanimaatio
-            if (!m_Grounded && m_Rigidbody2D.velocity.y < 0)
+			if (!m_Grounded && m_Rigidbody2D.velocity.y < 0)
             {
                 m_Anim.SetBool("Falling", true);
             }
@@ -135,12 +134,11 @@ namespace UnityStandardAssets._2D
 
             }
 
-
-            //en tiiä toimiiko tää oikein ku toi liikkuminen ei toimi oikein, mut ainaki se tönii corgia eteenpäin (hiiren vasen)
-            if (dash && !m_Anim.GetBool("Dash"))
+			//Dash animaation testailu...
+			if (dash && !m_Anim.GetBool("Dash"))
             {
                 m_Anim.SetBool("Dash", true);
-                m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f));
+                //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); ei näin
             }
 
             if (!dash && m_Anim.GetBool("Dash"))
