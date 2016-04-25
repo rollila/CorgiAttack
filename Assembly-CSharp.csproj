@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Destructor.cs" />
+     <Compile Include="Assets\Scripts\Destructor.cs" />
      <Compile Include="Assets\Scripts\FirebaseAPI.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\lib\JSON.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\CookieJar.cs" />
@@ -59,7 +59,7 @@
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
-     <Compile Include="Assets\test.cs" />
+     <Compile Include="Assets\Scripts\UIHandler.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
