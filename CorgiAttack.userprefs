@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\2D\Scripts\PlatformerCharacter2D.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\XML\playerStatStorage.xml">
     <Files>
-      <File FileName="Assets\Standard Assets\2D\Scripts\PlatformerCharacter2D.cs" Line="133" Column="14" />
-      <File FileName="Assets\Standard Assets\2D\Scripts\UIHandler.cs" Line="32" Column="2" />
-      <File FileName="Assets\Standard Assets\2D\Scripts\ButterflyPoints.cs" Line="26" Column="36" />
+      <File FileName="Assets\Scripts\XML\StatCollector.cs" Line="10" Column="26" />
+      <File FileName="Assets\Scripts\XML\StatHandler.cs" Line="23" Column="4" />
+      <File FileName="Assets\Scripts\XML\playerStatStorage.xml" Line="11" Column="18" />
+      <File FileName="Assets\Scripts\XML\Player.cs" Line="18" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

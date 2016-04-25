@@ -60,6 +60,11 @@
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
      <Compile Include="Assets\Scripts\UIHandler.cs" />
+     <Compile Include="Assets\Scripts\XML\Player.cs" />
+     <Compile Include="Assets\Scripts\XML\StatCollector.cs" />
+     <Compile Include="Assets\Scripts\XML\StatHandler.cs" />
+     <None Include="Assets\Scripts\XML\playerStatStorage.xml" />
+     <None Include="Assets\playerStats.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
