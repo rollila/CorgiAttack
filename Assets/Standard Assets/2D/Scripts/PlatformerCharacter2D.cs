@@ -1,9 +1,8 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UnityStandardAssets._2D
-{
+{	[RequireComponent(typeof (UIHandler))]
     public class PlatformerCharacter2D : MonoBehaviour
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
@@ -28,12 +27,7 @@ namespace UnityStandardAssets._2D
 
         //Score
         public float playerScore;
-        private Transform points;
-
-        public void UpdateScore()
-        {
-            points.GetComponent<Text>().text = (int)playerScore + "";
-        }
+		private UIHandler uiHandler;
 
         private void Awake()
         {
@@ -44,7 +38,7 @@ namespace UnityStandardAssets._2D
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             moveSpeed = 3f;
             playerScore = 0;
-            points = GameObject.Find("Canvas").transform.FindChild("BottomUIBar").FindChild("Points");
+			uiHandler = GetComponent<UIHandler> ();
         }
 
 
@@ -53,7 +47,7 @@ namespace UnityStandardAssets._2D
             moveSpeed += 0.01f;
             m_Grounded = false;
             playerScore += 0.1f * moveSpeed;
-            UpdateScore();
+			uiHandler.UpdateScore((int) playerScore);
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -77,6 +71,10 @@ namespace UnityStandardAssets._2D
             //m_Anim.SetFloat("Speed", moveSpeed);
         }
 
+		public void AddPoints(int points) {
+			uiHandler.AddPoints (points);
+			playerScore += (float)points;
+		}
 
         public void Move(float move, bool dash, bool jump)
         {
