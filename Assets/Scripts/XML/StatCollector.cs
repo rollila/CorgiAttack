@@ -9,6 +9,9 @@ public class StatCollector {
 	[XmlArray("PlayerStats"), XmlArrayItem("Player")]
 	public Player[] Players;
 
+	//[XmlArray("TopTen"), XmlArrayItem("Ranking")]
+	//public Ranking[] TopTen;
+
 	public void Save(string path)
 	{
 		var serializer = new XmlSerializer(typeof(StatCollector));

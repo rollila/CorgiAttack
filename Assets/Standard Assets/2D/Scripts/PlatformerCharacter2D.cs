@@ -6,7 +6,7 @@ namespace UnityStandardAssets._2D
     public class PlatformerCharacter2D : MonoBehaviour
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-        [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
+        [SerializeField] private float m_JumpForce = 80f;                  // Amount of force added when the player jumps.
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -56,6 +56,7 @@ namespace UnityStandardAssets._2D
             {
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
+					m_Doublejump = false;
             }
 
             //Oon nyt asettanut animaattoriin booleanin "Ground" joka on oltava TRUE, jotta corgi voi pompata
@@ -64,6 +65,7 @@ namespace UnityStandardAssets._2D
             //corgin tippumisanimaatio
 			if (!m_Grounded && m_Rigidbody2D.velocity.y < 0)
             {
+				m_Anim.SetBool ("Doublejump", false);
                 m_Anim.SetBool("Falling", true);
             }
 
@@ -121,15 +123,20 @@ namespace UnityStandardAssets._2D
             }
 
             // If the player should jump...
-            if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+			if (m_Grounded && jump && m_Anim.GetBool("Ground") || !m_Doublejump && jump && !m_Grounded)
             {
+
+				if (!m_Doublejump && !m_Grounded) {
+					m_Doublejump = true;
+					m_Anim.SetBool ("Doublejump", true);
+				}
+
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
                 m_Anim.SetBool("Falling", false);
+				m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-                m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
-
             }
 
 			//Dash animaation testailu...
