@@ -1,12 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\StartMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu.cs">
     <Files>
       <File FileName="Assets\Scripts\XML\StatHandler.cs" Line="33" Column="3" />
-      <File FileName="Assets\Scripts\UIHandler.cs" Line="19" Column="28" />
-      <File FileName="Assets\Scripts\StartMenu.cs" Line="22" Column="35" />
-      <File FileName="Assets\Scripts\FirebaseAPI.cs" Line="39" Column="11" />
-      <File FileName="Assets\Scripts\Scoreboard.cs" Line="25" Column="5" />
+      <File FileName="Assets\Scripts\Menu.cs" Line="37" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
