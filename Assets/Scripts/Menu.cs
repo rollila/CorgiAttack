@@ -3,33 +3,24 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class StartMenu : MonoBehaviour {
-	public Button startBut;
-	public Button statBut;
-	public Button scoreBut;
-	public Button closeBut;
-	public Button howBut;
-
-	private StatHandler handler;
-	private Player player;
-	private FirebaseAPI _firebase;
-
+public class Menu : MonoBehaviour {
+	public GameObject startScreen;
 	public GameObject statScreen;
 	public GameObject scoreboardScreen;
 	public GameObject globalScreen;
 	public GameObject localScreen;
 	public GameObject scoreMenuScreen;
+	public GameObject badScoreScreen;
+	public GameObject goodScoreScreen;
 	private GameObject currentScreen;
 
 	void Awake() {
-		handler = gameObject.GetComponent<StatHandler> ();
-		_firebase = scoreboardScreen.GetComponent<FirebaseAPI> ();
-		//_firebase.enabled = true;
-		//_firebase.PreloadScores(); //try to preload scores on launch
 		Time.timeScale = 0; //pause game
+		ActivateStartScreen();
 	}
-	// Use this for initialization
-	void Start () {
+
+	public void ReloadGame() {
+		SceneManager.LoadScene (0);
 	}
 	
 	public void QuitPressed() {
@@ -44,9 +35,8 @@ public class StartMenu : MonoBehaviour {
 	public void StatPressed() {
 		DeactivateStartScreen ();
 		statScreen.gameObject.SetActive (true);
-		currentScreen = statScreen;
-
-		player = handler.GetStats ();
+		SetCurrentScreen (statScreen);
+		Player player = statScreen.GetComponent<StatHandler> ().GetStats();
 		statScreen.transform.FindChild("Name").GetComponent<Text> ().text = player.playerName+"";
 		statScreen.transform.FindChild("Highscore").GetComponent<Text> ().text = player.highScore+"";
 		statScreen.transform.FindChild("TotalRounds").GetComponent<Text> ().text = player.totalRounds+"";
@@ -57,7 +47,7 @@ public class StartMenu : MonoBehaviour {
 		DeactivateStartScreen ();
 		scoreboardScreen.SetActive (true);
 		scoreMenuScreen.SetActive (true);
-		currentScreen = scoreboardScreen;
+		SetCurrentScreen (scoreboardScreen);
 	}
 
 	public void LocalPressed() {
@@ -67,22 +57,44 @@ public class StartMenu : MonoBehaviour {
 		//tää koko scoreboard hässäkkä pitäis tehä paremmin
 		scoreMenuScreen.SetActive (false);
 		globalScreen.SetActive (true);
-		currentScreen = globalScreen;
+		SetCurrentScreen (globalScreen);
 		scoreboardScreen.GetComponent<Scoreboard> ().ShowScores ();
+	}
+
+	public void DeathScreen() {
+	}
+
+	public void BadScore() {
+		SetCurrentScreen (badScoreScreen);
+		badScoreScreen.SetActive (true);
+	}
+
+	public void GoodScore() {
+		SetCurrentScreen (goodScoreScreen);
+		goodScoreScreen.SetActive (true);
 	}
 
 	public void ScoreboardReturn() {
 		currentScreen.SetActive (false);
-		currentScreen = scoreboardScreen;
+		SetCurrentScreen (scoreboardScreen);
 		ReturnPressed ();
 	}
 
 	public void ReturnPressed() {
 		currentScreen.SetActive (false);
-		this.gameObject.SetActive (true);
+		ActivateStartScreen ();
 	}
 
 	void DeactivateStartScreen() {
-		this.gameObject.SetActive (false);
+		startScreen.SetActive (false);
+	}
+
+	public void ActivateStartScreen() {
+		SetCurrentScreen (startScreen);
+		startScreen.SetActive (true);
+	}
+
+	public void SetCurrentScreen(GameObject screen) {
+		currentScreen = screen;
 	}
 }

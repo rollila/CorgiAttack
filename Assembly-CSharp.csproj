@@ -55,10 +55,10 @@
      <Compile Include="Assets\Scripts\HTTP Library\src\Response.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\ResponseCallbackDispatcher.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\StreamedWWWForm.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
-     <Compile Include="Assets\Scripts\StartMenu.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
      <Compile Include="Assets\Scripts\UIHandler.cs" />
      <Compile Include="Assets\Scripts\XML\Player.cs" />
