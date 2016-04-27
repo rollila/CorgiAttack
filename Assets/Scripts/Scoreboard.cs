@@ -21,6 +21,10 @@ public class Scoreboard : MonoBehaviour
         _firebase = GetComponent<FirebaseAPI>();
     }
 
+	void Start() {
+		//ShowScores ();
+	}
+
     public void SetPlayer(string name, int points)
     {
         //Score-object of this player is in player
