@@ -19,7 +19,7 @@ public class FirebaseAPI : MonoBehaviour
     void Awake()
     {
         //Preload scorelist:
-		PreloadScores();
+		//PreloadScores();
     }
 
 	public void PreloadScores() {

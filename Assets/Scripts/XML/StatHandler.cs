@@ -9,10 +9,11 @@ public class StatHandler : MonoBehaviour {
 	private string playerStatsXMLfilepath = "Scripts/XML/playerStatStorage.xml";
 
 	private Player stat;
-	private Ranking rank;
+	private StatCollector collector;
 
 	// Use this for initialization
 	void Start () {
+		collector = new StatCollector ();
 		/*
 		var Stats = StatCollector.Load(Path.Combine(Application.dataPath, playerStatsXMLfilepath));
 
@@ -29,6 +30,14 @@ public class StatHandler : MonoBehaviour {
 	public Player GetStats() {
 		var Stats = StatCollector.Load(Path.Combine(Application.dataPath, playerStatsXMLfilepath));
 		stat = Stats.Players [0]; //pelaajia on vain yksi
+		collector.SetPlayers(Stats.Players);
 		return stat;
+	}
+
+	public void SaveStats(Player p) {
+		//StatCollector collector = new StatCollector ();
+		collector.SetPlayer (p);
+		collector.Save(Path.Combine(Application.dataPath, playerStatsXMLfilepath));
+		Debug.Log ("Saving Stats?");
 	}
 }

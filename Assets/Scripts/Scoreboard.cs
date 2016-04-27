@@ -11,14 +11,21 @@ public class Scoreboard : MonoBehaviour
 {
 
     public static Score player;
-    public GameObject ScoreBoard;
+    public GameObject globalScoreBoard;
+	public GameObject localScoreBoard;
 
     //Scripts
-    public FirebaseAPI _firebase;
+    private FirebaseAPI _firebase;
+	private TopTenHandler _xml;
+
+	//Maybe need global scoreboards?
+	public Ranking[] TopTen;
+	public List<Score> scores;
 
     void Awake()
     {
         _firebase = GetComponent<FirebaseAPI>();
+		_xml = GetComponent<TopTenHandler> ();
     }
 
 	void Start() {
@@ -33,14 +40,35 @@ public class Scoreboard : MonoBehaviour
         player.points = points;
     }
 
-    public void ReturnToStartScreenButton()
-    {
-        //Probably need this button
-    }
+	public Ranking[] GetTopTen() {
+		TopTen = _xml.GetTopTen ();
+		return TopTen;
+	}
+
+	public void SaveLocal(int playerScore, string playerName) {
+		foreach (Ranking r in TopTen) {
+			if (playerScore > r.score) {
+				Ranking rank = new Ranking (r.rank, playerName, playerScore);
+				TopTen [r.rank - 1] = rank;
+				break;
+			}
+		}
+		_xml.StoreTopTen (TopTen);
+	}
+
+	public void ShowLocal() {
+		TopTen = _xml.GetTopTen ();
+		foreach (Ranking r in TopTen) {
+			int i = r.rank - 1;
+			Transform ScorePanel = localScoreBoard.transform.Find("ScorePanel (" + i+")");
+			ScorePanel.transform.Find("Rank").GetComponent<Text>().text = r.rank + "";
+			ScorePanel.transform.Find("Score").GetComponent<Text>().text = r.score + "";
+			ScorePanel.transform.Find("Name").GetComponent<Text>().text = r.name;
+		}
+	}
 
     public void ShowScores()
     {
-        List<Score> scores = new List<Score>();
         scores = _firebase.GetScores();
 
         //Firebasen pitäis olla järjestyksessä mutta ei ollu. Kunnes kexin kuinka Firebasen saa järjestykseen ni tää pitää sorttaa:
@@ -57,8 +85,8 @@ public class Scoreboard : MonoBehaviour
             {
                 break;
             }
-            Debug.Log(i + "" + s.name + ""+ scores.Count);
-            Transform ScorePanel = ScoreBoard.transform.Find("ScorePanel (" + i+")");
+            //Debug.Log(i + "" + s.name + ""+ scores.Count);
+            Transform ScorePanel = globalScoreBoard.transform.Find("ScorePanel (" + i+")");
             ScorePanel.transform.Find("Rank").GetComponent<Text>().text = i+1 + "";
             ScorePanel.transform.Find("Score").GetComponent<Text>().text = s.points + "";
             ScorePanel.transform.Find("Name").GetComponent<Text>().text = s.name;

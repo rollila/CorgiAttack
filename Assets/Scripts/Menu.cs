@@ -12,11 +12,18 @@ public class Menu : MonoBehaviour {
 	public GameObject scoreMenuScreen;
 	public GameObject badScoreScreen;
 	public GameObject goodScoreScreen;
+	public GameObject howToScreen;
 	private GameObject currentScreen;
+
+	public string playerName;
+
+	private StatHandler handler;
 
 	void Awake() {
 		Time.timeScale = 0; //pause game
 		ActivateStartScreen();
+		handler = GetComponent<StatHandler> ();
+		playerName = "Lissu"; //väliaikainen saa toki vaihtaa
 	}
 
 	public void ReloadGame() {
@@ -32,11 +39,16 @@ public class Menu : MonoBehaviour {
 		DeactivateStartScreen ();
 	}
 
+	public void HowToPressed() {
+		howToScreen.SetActive (true);
+		SetCurrentScreen (howToScreen);
+	}
+
 	public void StatPressed() {
 		DeactivateStartScreen ();
-		statScreen.gameObject.SetActive (true);
+		statScreen.SetActive (true);
 		SetCurrentScreen (statScreen);
-		Player player = statScreen.GetComponent<StatHandler> ().GetStats();
+		Player player = handler.GetStats();
 		statScreen.transform.FindChild("Name").GetComponent<Text> ().text = player.playerName+"";
 		statScreen.transform.FindChild("Highscore").GetComponent<Text> ().text = player.highScore+"";
 		statScreen.transform.FindChild("TotalRounds").GetComponent<Text> ().text = player.totalRounds+"";
@@ -48,9 +60,14 @@ public class Menu : MonoBehaviour {
 		scoreboardScreen.SetActive (true);
 		scoreMenuScreen.SetActive (true);
 		SetCurrentScreen (scoreboardScreen);
+		scoreboardScreen.GetComponent<FirebaseAPI> ().PreloadScores ();
 	}
 
 	public void LocalPressed() {
+		scoreMenuScreen.SetActive (false);
+		localScreen.SetActive (true);
+		SetCurrentScreen (localScreen);
+		scoreboardScreen.GetComponent<Scoreboard> ().ShowLocal ();
 	}
 
 	public void GlobalPressed() {
@@ -61,17 +78,43 @@ public class Menu : MonoBehaviour {
 		scoreboardScreen.GetComponent<Scoreboard> ().ShowScores ();
 	}
 
-	public void DeathScreen() {
+	public void Death(int playerScore) {
+		Time.timeScale = 0; //pause game
+		scoreboardScreen.SetActive (true);
+		Ranking[] TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
+		if (TopTen [9].score < playerScore) {
+			GoodScore (playerScore);
+		} else {
+			BadScore (playerScore);
+		}
 	}
 
-	public void BadScore() {
+	void SaveStats(int playerScore, string playerName) {
+		Player player = handler.GetStats();
+		player.totalPoints += playerScore;
+		player.totalRounds += 1;
+		player.playerName = playerName; //if new name was stored
+
+		if (player.highScore < playerScore) {
+			player.highScore = playerScore;
+		}
+
+		handler.SaveStats (player);
+	}
+
+	public void BadScore(int playerScore) {
 		SetCurrentScreen (badScoreScreen);
 		badScoreScreen.SetActive (true);
+		badScoreScreen.transform.FindChild("Score").GetComponent<Text> ().text = playerScore+"";
+		SaveStats (playerScore, playerName);
 	}
 
-	public void GoodScore() {
+	public void GoodScore(int playerScore) {
 		SetCurrentScreen (goodScoreScreen);
 		goodScoreScreen.SetActive (true);
+		goodScoreScreen.transform.FindChild("Score").GetComponent<Text> ().text = playerScore+"";
+		SaveStats (playerScore, playerName);
+		scoreboardScreen.GetComponent<Scoreboard> ().SaveLocal (playerScore, playerName);
 	}
 
 	public void ScoreboardReturn() {
@@ -86,6 +129,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	void DeactivateStartScreen() {
+		currentScreen.SetActive (false);
 		startScreen.SetActive (false);
 	}
 
