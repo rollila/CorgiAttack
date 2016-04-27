@@ -13,4 +13,11 @@ public class Ranking {
 
 	[XmlElement("score")]
 	public int score;
+
+	public Ranking() {}
+	public Ranking(int Rank, string Name, int Score) {
+		rank = Rank;
+		name = Name;
+		score = Score;
+	}
 }

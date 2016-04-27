@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FallArea.cs" />
      <Compile Include="Assets\Scripts\Destructor.cs" />
      <Compile Include="Assets\Scripts\FirebaseAPI.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\lib\JSON.cs" />
@@ -65,12 +66,16 @@
      <Compile Include="Assets\Scripts\XML\Ranking.cs" />
      <Compile Include="Assets\Scripts\XML\StatCollector.cs" />
      <Compile Include="Assets\Scripts\XML\StatHandler.cs" />
+     <Compile Include="Assets\Scripts\XML\TopTenHandler.cs" />
      <None Include="Assets\Scripts\XML\playerStatStorage.xml" />
+     <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\topTenStorage 1.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\playerStatStorage 1.xml" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
+     <None Include="Assets\Scripts\XML\topTenStorage.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>H:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

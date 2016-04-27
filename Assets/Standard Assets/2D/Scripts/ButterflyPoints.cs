@@ -18,8 +18,8 @@ public class ButterflyPoints : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("Corgi touched butterfly");
-		if (other.gameObject.layer == 10) { //player 
+		if (other.gameObject.layer == 10) { //player
+			Debug.Log ("Corgi touched butterfly");
 			if (!anim.GetBool ("touched")) {
 				Debug.Log ("Corgi got points from touching butterfly!");
 				other.gameObject.GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ().AddPoints (points);

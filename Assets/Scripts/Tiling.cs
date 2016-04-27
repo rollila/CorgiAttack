@@ -15,7 +15,7 @@ public class Tiling : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (transform.position.x / movedX > 10)
+        if (transform.position.x / movedX > 20)
         {
             Debug.Log("Spawn shit now");
             Instantiate(spawnables[Random.Range(0, 2)], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);

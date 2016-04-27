@@ -9,8 +9,8 @@ public class StatCollector {
 	[XmlArray("PlayerStats"), XmlArrayItem("Player")]
 	public Player[] Players;
 
-	//[XmlArray("TopTen"), XmlArrayItem("Ranking")]
-	//public Ranking[] TopTen;
+	[XmlArray("TopTen"), XmlArrayItem("Ranking")]
+	public Ranking[] TopTen;
 
 	public void Save(string path)
 	{
@@ -29,5 +29,17 @@ public class StatCollector {
 			return serializer.Deserialize(stream) as StatCollector;
 		}
 			
+	}
+
+	public void SetTopTen(Ranking[] TopTen2) {
+		TopTen = TopTen2;
+	}
+
+	public void SetPlayers(Player[] p) {
+		Players = p;
+	}
+
+	public void SetPlayer(Player p) {
+		Players[0] = p;
 	}
 }
