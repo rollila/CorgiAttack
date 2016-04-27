@@ -19,8 +19,12 @@ public class FirebaseAPI : MonoBehaviour
     void Awake()
     {
         //Preload scorelist:
-        StartCoroutine(GetAndWaitForRequest());
+		PreloadScores();
     }
+
+	public void PreloadScores() {
+		StartCoroutine(GetAndWaitForRequest());
+	}
 
     // Use this for initialization
     void Start()
@@ -32,7 +36,7 @@ public class FirebaseAPI : MonoBehaviour
     {
         //TESTING:
         //PostScore("Me2", 2);
-        _board.SetPlayer("eioleolemassa", 0);
+        //_board.SetPlayer("eioleolemassa", 0);
         _board.ShowScores();
     }
 

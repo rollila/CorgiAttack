@@ -13,6 +13,7 @@ public class StatHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		/*
 		var Stats = StatCollector.Load(Path.Combine(Application.dataPath, playerStatsXMLfilepath));
 
 		Debug.Log ("Loop through player events");
@@ -22,6 +23,12 @@ public class StatHandler : MonoBehaviour {
 			Debug.Log (stat.totalRounds);
 			Debug.Log (stat.totalPoints);
 			Debug.Log (stat.highScore);
-		}
+		}*/
+	}
+
+	public Player GetStats() {
+		var Stats = StatCollector.Load(Path.Combine(Application.dataPath, playerStatsXMLfilepath));
+		stat = Stats.Players [0]; //pelaajia on vain yksi
+		return stat;
 	}
 }
