@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour {
 		Time.timeScale = 0; //pause game
 		ActivateStartScreen();
 		handler = GetComponent<StatHandler> ();
-		playerName = "Lissu"; //väliaikainen saa toki vaihtaa
+		playerName = "Lissu"; //väliaikainen saa toki vaihtaa, en oo pistäny mihinkää et mistä voi syöttää
 	}
 
 	public void ReloadGame() {
@@ -60,7 +60,7 @@ public class Menu : MonoBehaviour {
 		scoreboardScreen.SetActive (true);
 		scoreMenuScreen.SetActive (true);
 		SetCurrentScreen (scoreboardScreen);
-		scoreboardScreen.GetComponent<FirebaseAPI> ().PreloadScores ();
+		scoreboardScreen.GetComponent<FirebaseAPI> ().PreloadScores (); //lataa serveriltä global scoret
 	}
 
 	public void LocalPressed() {
@@ -79,7 +79,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void Death(int playerScore) {
-		Time.timeScale = 0; //pause game
+		Time.timeScale = 0; //pause game, vai jotain muuta?
 		scoreboardScreen.SetActive (true);
 		Ranking[] TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
 		if (TopTen [9].score < playerScore) {
