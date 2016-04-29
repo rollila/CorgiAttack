@@ -7,7 +7,7 @@ public class FallArea : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		//canvas = GameObject.Find ("Canvas");
+		canvas = GameObject.Find ("Canvas").GetComponent<Canvas>();
 		menu = canvas.GetComponent<Menu> ();
 	}
 	

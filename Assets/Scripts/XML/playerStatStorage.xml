@@ -2,8 +2,8 @@
 <StatCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <PlayerStats>
     <Player name="Lissu">
-      <totalPoints>11346</totalPoints>
-      <totalRounds>26</totalRounds>
+      <totalPoints>15223</totalPoints>
+      <totalRounds>31</totalRounds>
       <highScore>1699</highScore>
     </Player>
   </PlayerStats>
