@@ -2,6 +2,8 @@
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using UnityEngine;
+using System.Collections;
 
 [XmlRoot("StatCollection")]
 public class StatCollector {
