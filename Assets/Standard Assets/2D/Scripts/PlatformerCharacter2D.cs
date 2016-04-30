@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace UnityStandardAssets._2D
@@ -6,9 +7,9 @@ namespace UnityStandardAssets._2D
     public class PlatformerCharacter2D : MonoBehaviour
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-        [SerializeField] private float m_JumpForce = 800f;                  // Amount of force added when the player jumps.
-        [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
-        [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
+        [SerializeField] private float m_JumpForce = 800f;
+		[SerializeField] private float m_DashForce = 100f;  
+		[SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
@@ -24,6 +25,7 @@ namespace UnityStandardAssets._2D
         //Booleaneja ja speed animaatioita varten:
         private bool m_Grounded;            // Onko pelaaja maassa
         private bool m_Doublejump;          // Käsky tuplahypätä
+		private bool m_Dashing;
 
         //Score
         public float playerScore;
@@ -80,6 +82,11 @@ namespace UnityStandardAssets._2D
 
 		public int GetPoints() {
 			return (int)playerScore;
+		}
+
+		public bool IsDashing() {
+			//Is Corgi dashing when it touches sign?
+			return m_Dashing;
 		}
 
         public void Move(float move, bool dash, bool jump)
@@ -147,12 +154,9 @@ namespace UnityStandardAssets._2D
 			if (dash && !m_Anim.GetBool("Dash"))
             {
                 m_Anim.SetBool("Dash", true);
-                //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); ei näin
-            }
-
-            if (!dash && m_Anim.GetBool("Dash"))
-            {
-                m_Anim.SetBool("Dash", false);
+                //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); //ehkä ei näin
+				m_Dashing = true;
+				StartCoroutine (WaitDash());
             }
         }
 
@@ -167,5 +171,11 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }*/
+
+		IEnumerator WaitDash() {
+			yield return new WaitForSeconds (0.4f); //pituus
+			m_Anim.SetBool("Dash", false);
+			m_Dashing = false;
+		}
     }
 }

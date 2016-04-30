@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class FallArea : MonoBehaviour {
-	public Canvas canvas;
+	private Canvas canvas;
 	private Menu menu;
 
 	// Use this for initialization

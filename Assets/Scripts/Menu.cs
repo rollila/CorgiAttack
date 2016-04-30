@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour {
 	public GameObject badScoreScreen;
 	public GameObject goodScoreScreen;
 	public GameObject howToScreen;
+	public GameObject doYouReallyScreen;
 	private GameObject currentScreen;
 
 	public string playerName;
@@ -28,6 +29,12 @@ public class Menu : MonoBehaviour {
 
 	public void ReloadGame() {
 		SceneManager.LoadScene (0);
+	}
+
+	public void DoYouReallyWantToQuit() {
+		DeactivateStartScreen ();
+		doYouReallyScreen.SetActive (true);
+		SetCurrentScreen (doYouReallyScreen);
 	}
 	
 	public void QuitPressed() {
