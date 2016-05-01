@@ -28,8 +28,8 @@
     </Ranking>
     <Ranking>
       <rank>6</rank>
-      <name>Lissu</name>
-      <score>1402</score>
+      <name />
+      <score>1413</score>
     </Ranking>
     <Ranking>
       <rank>7</rank>
@@ -43,13 +43,13 @@
     </Ranking>
     <Ranking>
       <rank>9</rank>
-      <name>Lissu</name>
-      <score>779</score>
+      <name>Fluffy</name>
+      <score>1021</score>
     </Ranking>
     <Ranking>
       <rank>10</rank>
-      <name>Lissu</name>
-      <score>725</score>
+      <name />
+      <score>961</score>
     </Ranking>
   </TopTen>
 </StatCollection>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <StatCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <PlayerStats>
-    <Player name="Lissu">
-      <totalPoints>33016</totalPoints>
-      <totalRounds>89</totalRounds>
-      <highScore>1699</highScore>
+    <Player name="Fluffy">
+      <totalPoints>5462</totalPoints>
+      <totalRounds>10</totalRounds>
+      <highScore>1413</highScore>
     </Player>
   </PlayerStats>
 </StatCollection>
