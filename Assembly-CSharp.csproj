@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ButterflyPoints.cs" />
+     <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Destructor.cs" />
      <Compile Include="Assets\Scripts\FallArea.cs" />
      <Compile Include="Assets\Scripts\FirebaseAPI.cs" />
@@ -59,6 +62,9 @@
      <Compile Include="Assets\Scripts\HitGround.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\NoDogsSign.cs" />
+     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
+     <Compile Include="Assets\Scripts\PlatformerCharacter2D.cs" />
+     <Compile Include="Assets\Scripts\Restarter.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />

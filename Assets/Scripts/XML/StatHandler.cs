@@ -11,9 +11,11 @@ public class StatHandler : MonoBehaviour {
 	private Player stat;
 	private StatCollector collector;
 
+	void Awake() {
+		collector = new StatCollector ();
+	}
 	// Use this for initialization
 	void Start () {
-		collector = new StatCollector ();
 		/*
 		var Stats = StatCollector.Load(Path.Combine(Application.dataPath, playerStatsXMLfilepath));
 

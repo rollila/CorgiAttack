@@ -14,17 +14,42 @@ public class Menu : MonoBehaviour {
 	public GameObject goodScoreScreen;
 	public GameObject howToScreen;
 	public GameObject doYouReallyScreen;
+	public GameObject enterNameScreen;
 	private GameObject currentScreen;
-
-	public string playerName;
 
 	private StatHandler handler;
 
 	void Awake() {
 		Time.timeScale = 0; //pause game
-		ActivateStartScreen();
 		handler = GetComponent<StatHandler> ();
-		playerName = "Lissu"; //väliaikainen saa toki vaihtaa, en oo pistäny mihinkää et mistä voi syöttää
+		//playerName = "Lissu"; //väliaikainen saa toki vaihtaa, en oo pistäny mihinkää et mistä voi syöttää
+	}
+
+	void Start() {
+		Player player = handler.GetStats();
+
+		if (player.playerName == null) {
+			EnterName ();
+		} else {
+			ActivateStartScreen ();
+		}
+	}
+
+	public void EnterName() {
+		enterNameScreen.SetActive (true);
+		SetCurrentScreen (enterNameScreen);
+	}
+
+	public void SubmitName(string name) {
+		SaveName (name);
+	}
+
+	public void SubmitNameButton() {
+		InputField field = enterNameScreen.GetComponent<InputField> ();
+		string text = enterNameScreen.transform.FindChild("InputField").FindChild("Text").GetComponent<Text>().text;
+		SubmitName (text);
+		currentScreen.SetActive (false);
+		ActivateStartScreen ();
 	}
 
 	public void ReloadGame() {
@@ -96,12 +121,16 @@ public class Menu : MonoBehaviour {
 		}
 	}
 
-	void SaveStats(int playerScore, string playerName) {
+	void SaveName(string playerName) {
+		Player player = handler.GetStats();
+		player.playerName = playerName;
+		handler.SaveStats (player);
+	}
+
+	void SaveStats(int playerScore) {
 		Player player = handler.GetStats();
 		player.totalPoints += playerScore;
 		player.totalRounds += 1;
-		player.playerName = playerName; //if new name was stored
-
 		if (player.highScore < playerScore) {
 			player.highScore = playerScore;
 		}
@@ -109,19 +138,31 @@ public class Menu : MonoBehaviour {
 		handler.SaveStats (player);
 	}
 
+	public void ResetStats() {
+		Player player = handler.GetStats ();
+		player.totalPoints = 0;
+		player.totalRounds = 0;
+		player.highScore = 0;
+		player.playerName = null;
+		handler.SaveStats (player);
+		StatPressed ();
+	}
+
 	public void BadScore(int playerScore) {
 		SetCurrentScreen (badScoreScreen);
 		badScoreScreen.SetActive (true);
 		badScoreScreen.transform.FindChild("Score").GetComponent<Text> ().text = playerScore+"";
-		SaveStats (playerScore, playerName);
+		SaveStats (playerScore);
 	}
 
 	public void GoodScore(int playerScore) {
 		SetCurrentScreen (goodScoreScreen);
 		goodScoreScreen.SetActive (true);
 		goodScoreScreen.transform.FindChild("Score").GetComponent<Text> ().text = playerScore+"";
-		SaveStats (playerScore, playerName);
-		scoreboardScreen.GetComponent<Scoreboard> ().SaveLocal (playerScore, playerName);
+
+		SaveStats (playerScore);
+		Player player = handler.GetStats ();
+		scoreboardScreen.GetComponent<Scoreboard> ().SaveLocal (playerScore, player.playerName);
 	}
 
 	public void ScoreboardReturn() {

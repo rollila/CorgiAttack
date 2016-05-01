@@ -45,7 +45,18 @@ public class Scoreboard : MonoBehaviour
 		return TopTen;
 	}
 
+	public void ResetLocal() {
+		int i = 1;
+		foreach (Ranking r in TopTen) {
+			Ranking rank = new Ranking (i, "cat", 0);
+			TopTen [i - 1] = rank;
+			i++;
+		}
+		_xml.StoreTopTen (TopTen);	
+	}
+
 	public void SaveLocal(int playerScore, string playerName) {
+		TopTen = _xml.GetTopTen ();
 		foreach (Ranking r in TopTen) {
 			if (playerScore > r.score) {
 				Ranking rank = new Ranking (r.rank, playerName, playerScore);
@@ -90,11 +101,6 @@ public class Scoreboard : MonoBehaviour
             ScorePanel.transform.Find("Rank").GetComponent<Text>().text = i+1 + "";
             ScorePanel.transform.Find("Score").GetComponent<Text>().text = s.points + "";
             ScorePanel.transform.Find("Name").GetComponent<Text>().text = s.name;
-
-            if (!s.Equals(player))
-            {
-                //Player gets top 5 highscore: Do things
-            }
             i++;
         }
     }
