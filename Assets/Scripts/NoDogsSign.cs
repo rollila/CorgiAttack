@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets._2D;
 
 public class NoDogsSign : MonoBehaviour {
 	private Animator anim;
 	private Canvas canvas;
 	private Menu menu;
+	public int points;
+
+	private BoxCollider2D boxy;
 
 	void Awake() {
 		anim = GetComponent<Animator> ();
+		boxy = GetComponent<BoxCollider2D> ();
 		canvas = GameObject.Find ("Canvas").GetComponent<Canvas>();
 		menu = canvas.GetComponent<Menu> ();
+		points = 100; //hmm...
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -17,13 +23,17 @@ public class NoDogsSign : MonoBehaviour {
 			//jos corgi dash -> hajoaa
 
 			//animation test:
-			if (other.GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ().IsDashing ()) {
+			if (other.GetComponent<PlatformerCharacter2D> ().IsDashing ()) {
 				anim.SetBool ("corgiBreaksSign", true);
+				other.gameObject.GetComponent<PlatformerCharacter2D> ().AddPoints (points);
+				Debug.Log ("Corgi dashed through sign and got points!");
 				//animation["sign_break"].wrapMode = WrapMode.Once;
 				//animation.Play ("sign_break");
+				boxy.enabled = false;
 				StartCoroutine(Destroy());
 			} else {
-				int playerScore = other.GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ().GetPoints ();
+				Debug.Log ("Corgi hit sign");
+				int playerScore = other.GetComponent<PlatformerCharacter2D> ().GetPoints ();
 				menu.Death(playerScore);
 			}
 		}

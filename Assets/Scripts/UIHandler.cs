@@ -20,13 +20,14 @@ public class UIHandler : MonoBehaviour {
 	}
 
 	public void AddPoints(int points) { //add extra points to UI
-		UIincPoints.GetComponent<Text> ().text = points + "";
+		UIincPoints.GetComponent<Text> ().text = "+ "+points + "";
 		StartCoroutine (WaitASecond ());
-		UIincPoints.GetComponent<Text> ().text = "";
+		//UIincPoints.GetComponent<Text> ().text = "";
 	}
 
-	IEnumerator WaitASecond() { //wait before removing
+	IEnumerator WaitASecond() { //wait 1 sec before removing from UI
 		yield return new WaitForSeconds(1);
+		UIincPoints.GetComponent<Text> ().text = "";
 	}
 
 }
