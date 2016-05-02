@@ -32,9 +32,9 @@ public class NoDogsSign : MonoBehaviour {
 				boxy.enabled = false;
 				StartCoroutine(Destroy());
 			} else {
+				other.GetComponent<PlatformerCharacter2D> ().CorgiCollision ();
 				Debug.Log ("Corgi hit sign");
 				int playerScore = other.GetComponent<PlatformerCharacter2D> ().GetPoints ();
-				other.GetComponent<PlatformerCharacter2D> ().CorgiCollision ();
 				menu.Death(playerScore);
 			}
 		}
