@@ -16,6 +16,7 @@ public class HitGround : MonoBehaviour {
 		if (other.gameObject.layer == 10) { //player
 			Debug.Log("Corgi hit edge of platform");
 			int playerScore = other.GetComponent<PlatformerCharacter2D> ().GetPoints ();
+			other.GetComponent<PlatformerCharacter2D> ().CorgiCollision ();
 			menu.Death(playerScore);
 			//täällä vois esim soittaa musaa tjsp
 		}
