@@ -114,7 +114,7 @@ public class Menu : MonoBehaviour {
 		Time.timeScale = 0; //pause game, vai jotain muuta?
 		scoreboardScreen.SetActive (true);
 		Ranking[] TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
-		if (TopTen [9].score < playerScore) {
+		if (TopTen [9].score < playerScore) { //onko score korkeempi ku 10. sija (tällä hetkellä local only)
 			GoodScore (playerScore);
 		} else {
 			BadScore (playerScore);
