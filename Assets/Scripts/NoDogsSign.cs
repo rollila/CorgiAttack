@@ -34,6 +34,7 @@ public class NoDogsSign : MonoBehaviour {
 			} else {
 				Debug.Log ("Corgi hit sign");
 				int playerScore = other.GetComponent<PlatformerCharacter2D> ().GetPoints ();
+				other.GetComponent<PlatformerCharacter2D> ().CorgiCollision ();
 				menu.Death(playerScore);
 			}
 		}

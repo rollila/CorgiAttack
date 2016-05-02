@@ -80,6 +80,7 @@ namespace UnityStandardAssets._2D
 
 			//corgi on jumissa ja pelin pit‰‰ p‰‰tty‰, nopeutta ei voi kattoa koska se pakotetaan corgille ni katon updatesyklien v‰liss‰ et paikka muuttuu
 			if (transform.position.x == prevP) {
+				CorgiCollision ();
 				menu.Death (GetPoints ());
 				Debug.Log ("Corgi is stuck?");
 			} else {
@@ -187,10 +188,20 @@ namespace UnityStandardAssets._2D
             transform.localScale = theScale;
         }*/
 
+		public void CorgiCollision() {
+			m_Anim.Play ("poof");
+			StartCoroutine (WaitCollision ());
+		}
+
 		IEnumerator WaitDash() {
 			yield return new WaitForSeconds (0.4f); //pituus
 			m_Anim.SetBool("Dash", false);
 			m_Dashing = false;
 		}
+
+		IEnumerator WaitCollision() {
+			yield return new WaitForSeconds (0.1f);
+		}
+
     }
 }
