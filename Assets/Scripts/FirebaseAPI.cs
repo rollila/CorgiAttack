@@ -40,12 +40,8 @@ public class FirebaseAPI : MonoBehaviour
         _board.ShowScores();
     }
 
-    void SendScoreButtonPress()
+	public void SendScore(string playerName, int playerScore)
     {
-        //TODO THIS THING:
-        string playerName = "testerii"; //set from input, max 10 letters (validation set in firebase)
-        int playerScore = 10; //set playerScore
-
         if (playerName == null)
         {
             //validate name?
@@ -55,6 +51,9 @@ public class FirebaseAPI : MonoBehaviour
 
         PostScore(playerName, playerScore);
         _board.SetPlayer(playerName, playerScore);
+
+		//update cached scores
+		UpdateScoreCache ();
     }
 
     void PostScore(string name, int score)
