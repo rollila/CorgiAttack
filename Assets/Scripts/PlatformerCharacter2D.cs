@@ -8,6 +8,7 @@ namespace UnityStandardAssets._2D
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 800f;
+		[SerializeField] private float m_DJumpForce = 500f;
 		[SerializeField] private float m_DashForce = 100f;  
 		[SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -80,18 +81,16 @@ namespace UnityStandardAssets._2D
 
 			//corgi on jumissa ja pelin pit‰‰ p‰‰tty‰, nopeutta ei voi kattoa koska se pakotetaan corgille ni katon updatesyklien v‰liss‰ et paikka muuttuu
 			if (transform.position.x == prevP) {
+				Debug.Log ("Corgi is stuck?");
 				CorgiCollision ();
 				menu.Death (GetPoints ());
-				Debug.Log ("Corgi is stuck?");
 			} else {
 				prevP = transform.position.x;
 			}
-
-            // Animaation nopeuttaminen voidaan tehd‰ t‰ss‰
-            //m_Anim.SetFloat("Speed", moveSpeed);
         }
 
 		public void AddPoints(int points) {
+			//t‰ss‰ vois lis‰‰ kertoimen
 			uiHandler.AddPoints (points);
 			playerScore += (float)points;
 		}
@@ -156,21 +155,23 @@ namespace UnityStandardAssets._2D
 				if (!m_Doublejump && !m_Grounded) {
 					m_Doublejump = true;
 					m_Anim.SetBool ("Doublejump", true);
+					m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce));
 				}
-
-                // Add a vertical force to the player.
-                m_Grounded = false;
-                m_Anim.SetBool("Ground", false);
-                m_Anim.SetBool("Falling", false);
-				m_Anim.SetBool("Jump", true); //on mahdollista et t‰t‰ ei tartte mut animaatiot vastustaa mua
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+				else {
+	                // Add a vertical force to the player.
+	                m_Grounded = false;
+	                m_Anim.SetBool("Ground", false);
+	                m_Anim.SetBool("Falling", false);
+					m_Anim.SetBool("Jump", true); //on mahdollista et t‰t‰ ei tartte mut animaatiot vastustaa mua
+	                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+				}
             }
 
 			//Dash animaation testailu...
 			if (dash && !m_Anim.GetBool("Dash"))
             {
                 m_Anim.SetBool("Dash", true);
-                //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); //ehk‰ ei n‰in
+                m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); //ehk‰ ei n‰in
 				m_Dashing = true;
 				StartCoroutine (WaitDash());
             }
@@ -189,8 +190,10 @@ namespace UnityStandardAssets._2D
         }*/
 
 		public void CorgiCollision() {
-			m_Anim.Play ("poof");
-			StartCoroutine (WaitCollision ());
+			//m_Anim.Play ("poof");
+			m_Anim.SetBool("Collision", true);
+			Debug.Log ("Corgi collision animation should be playing??");
+			//StartCoroutine (WaitCollision ());
 		}
 
 		IEnumerator WaitDash() {
@@ -200,7 +203,7 @@ namespace UnityStandardAssets._2D
 		}
 
 		IEnumerator WaitCollision() {
-			yield return new WaitForSeconds (0.1f);
+			yield return new WaitForSeconds (0.2f);
 		}
 
     }
