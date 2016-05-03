@@ -2,9 +2,9 @@
 <StatCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <PlayerStats>
     <Player name="Fluffy">
-      <totalPoints>110563</totalPoints>
-      <totalRounds>331</totalRounds>
-      <highScore>2248</highScore>
+      <totalPoints>135808</totalPoints>
+      <totalRounds>358</totalRounds>
+      <highScore>2258</highScore>
     </Player>
   </PlayerStats>
 </StatCollection>
