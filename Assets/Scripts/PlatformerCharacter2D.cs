@@ -67,6 +67,7 @@ namespace UnityStandardAssets._2D
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
 					m_Doublejump = false;
+					m_Anim.SetBool("Falling", false);
             }
 
             //Oon nyt asettanut animaattoriin booleanin "Ground" joka on oltava TRUE, jotta corgi voi pompata
@@ -151,19 +152,28 @@ namespace UnityStandardAssets._2D
             // If the player should jump...
 			if (m_Grounded && jump && m_Anim.GetBool("Ground") || !m_Doublejump && jump && !m_Grounded)
             {
-
 				if (!m_Doublejump && !m_Grounded) {
 					m_Doublejump = true;
 					m_Anim.SetBool ("Doublejump", true);
-					m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce));
+					//m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce));
+					//m_Rigidbody2D.velocity = new Vector2(moveSpeed, m_DJumpForce);
+
+					if (m_Anim.GetBool("Falling")) {
+						//m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce/20), ForceMode2D.Impulse);
+						m_Rigidbody2D.velocity = new Vector2(0f, m_JumpForce);
+					} else {
+						m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce), ForceMode2D.Impulse);
+					}
+					m_Anim.SetBool("Falling", false);
 				}
 				else {
 	                // Add a vertical force to the player.
 	                m_Grounded = false;
 	                m_Anim.SetBool("Ground", false);
-	                m_Anim.SetBool("Falling", false);
 					m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
-	                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+					m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
+					//m_Rigidbody2D.velocity = new Vector2(0f, m_JumpForce);
+					//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				}
             }
 
@@ -171,7 +181,8 @@ namespace UnityStandardAssets._2D
 			if (dash && !m_Anim.GetBool("Dash"))
             {
                 m_Anim.SetBool("Dash", true);
-                m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); //ehkä ei näin
+                //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); //ehkä ei näin
+				m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f), ForceMode2D.Impulse);
 				m_Dashing = true;
 				StartCoroutine (WaitDash());
             }
@@ -200,10 +211,6 @@ namespace UnityStandardAssets._2D
 			yield return new WaitForSeconds (0.4f); //pituus
 			m_Anim.SetBool("Dash", false);
 			m_Dashing = false;
-		}
-
-		IEnumerator WaitCollision() {
-			yield return new WaitForSeconds (0.2f);
 		}
 
     }
