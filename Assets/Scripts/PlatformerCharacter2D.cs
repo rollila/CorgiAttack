@@ -71,18 +71,19 @@ namespace UnityStandardAssets._2D
             }
 
             //Oon nyt asettanut animaattoriin booleanin "Ground" joka on oltava TRUE, jotta corgi voi pompata
-            m_Anim.SetBool("Ground", m_Grounded);
+           	m_Anim.SetBool("Ground", m_Grounded);
 
             //corgin tippumisanimaatio
 			if (!m_Grounded && m_Rigidbody2D.velocity.y < 0)
             {
+				m_Anim.SetBool("Jump", false);
 				m_Anim.SetBool ("Doublejump", false);
                 m_Anim.SetBool("Falling", true);
             }
 
 			//corgi on jumissa ja pelin pitää päättyä, nopeutta ei voi kattoa koska se pakotetaan corgille ni katon updatesyklien välissä et paikka muuttuu
 			if (transform.position.x == prevP) {
-				Debug.Log ("Corgi is stuck?");
+				Debug.Log ("Corgi is stuck");
 				CorgiCollision ();
 				menu.Death (GetPoints ());
 			} else {
@@ -107,20 +108,6 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool dash, bool jump)
         {
-            /*
-            // If crouching, check to see if the character can stand up
-            if (!crouch && m_Anim.GetBool("Crouch"))
-            {
-                // If the character has a ceiling preventing them from standing up, keep them crouching
-                if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-                {
-                    crouch = true;
-                }
-            }
-
-            // Set whether or not the character is crouching in the animator
-            m_Anim.SetBool("Crouch", crouch);
-            */
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
@@ -132,42 +119,30 @@ namespace UnityStandardAssets._2D
 
                 // Move the character
                 m_Rigidbody2D.velocity = new Vector2(moveSpeed, m_Rigidbody2D.velocity.y);
-
-				/*
-                // If the input is moving the player right and the player is facing left...
-                if (move > 0 && !m_FacingRight)
-                {
-                    // ... flip the player.
-                    Flip();
-                }
-                    // Otherwise if the input is moving the player left and the player is facing right...
-                else if (move < 0 && m_FacingRight)
-                {
-                    // ... flip the player.
-                    Flip();
-                }*/
      
             }
 
             // If the player should jump...
 			if (m_Grounded && jump && m_Anim.GetBool("Ground") || !m_Doublejump && jump && !m_Grounded)
             {
+				//Doublejump
 				if (!m_Doublejump && !m_Grounded) {
 					m_Doublejump = true;
 					m_Anim.SetBool ("Doublejump", true);
-					//m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce));
-					//m_Rigidbody2D.velocity = new Vector2(moveSpeed, m_DJumpForce);
 
 					if (m_Anim.GetBool("Falling")) {
-						//m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce/20), ForceMode2D.Impulse);
+						//kumoaa gravitaation:
 						m_Rigidbody2D.velocity = new Vector2(0f, m_JumpForce);
 					} else {
+						//tönäisee:
 						m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce), ForceMode2D.Impulse);
 					}
+
 					m_Anim.SetBool("Falling", false);
 				}
-				else {
-	                // Add a vertical force to the player.
+				//Feature: Jos corgi osuu perhoseen yhden hypyn jälkeen, hypyt resettaa ja corgi voi tällöin hypätä 3x...
+				//Jump
+				else if (m_Grounded) {
 	                m_Grounded = false;
 	                m_Anim.SetBool("Ground", false);
 					m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
@@ -177,34 +152,23 @@ namespace UnityStandardAssets._2D
 				}
             }
 
-			//Dash animaation testailu...
+			//Dash
 			if (dash && !m_Anim.GetBool("Dash"))
             {
                 m_Anim.SetBool("Dash", true);
-                //m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f)); //ehkä ei näin
 				m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f), ForceMode2D.Impulse);
 				m_Dashing = true;
 				StartCoroutine (WaitDash());
             }
         }
-
-        /*
-        private void Flip()
-        {
-            // Switch the way the player is labelled as facing.
-            m_FacingRight = !m_FacingRight;
-
-            // Multiply the player's x local scale by -1.
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-        }*/
-
+			
 		public void CorgiCollision() {
-			//m_Anim.Play ("poof");
 			m_Anim.SetBool("Collision", true);
-			Debug.Log ("Corgi collision animation should be playing??");
-			//StartCoroutine (WaitCollision ());
+			//Debug.Log ("Corgi collision animation should be playing??");
+		}
+
+		public void CorgiFell() {
+			m_Anim.SetBool ("FellOut", true);
 		}
 
 		IEnumerator WaitDash() {

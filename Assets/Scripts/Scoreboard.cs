@@ -78,7 +78,7 @@ public class Scoreboard : MonoBehaviour
 		}
 	}
 
-	public void SaveGlobal(string playerName, int playerScore) {
+	public void SaveGlobal(int playerScore, string playerName) {
 		_firebase.SendScore (playerName, playerScore);
 	}
 

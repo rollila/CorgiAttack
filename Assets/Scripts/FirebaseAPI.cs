@@ -50,7 +50,7 @@ public class FirebaseAPI : MonoBehaviour
         playerName = playerName.Trim();
 
         PostScore(playerName, playerScore);
-        _board.SetPlayer(playerName, playerScore);
+        //_board.SetPlayer(playerName, playerScore);
 
 		//update cached scores
 		UpdateScoreCache ();
