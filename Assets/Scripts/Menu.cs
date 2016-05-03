@@ -143,7 +143,7 @@ public class Menu : MonoBehaviour {
 		player.totalPoints = 0;
 		player.totalRounds = 0;
 		player.highScore = 0;
-		player.playerName = null;
+		//player.playerName = null;
 		handler.SaveStats (player);
 		StatPressed ();
 	}
@@ -163,6 +163,9 @@ public class Menu : MonoBehaviour {
 		SaveStats (playerScore);
 		Player player = handler.GetStats ();
 		scoreboardScreen.GetComponent<Scoreboard> ().SaveLocal (playerScore, player.playerName);
+
+		//tällä hetkellä global score lähetetään vain jos local score on hyvä
+		scoreboardScreen.GetComponent<Scoreboard> ().SaveGlobal (playerScore, player.playerName);
 	}
 
 	public void ScoreboardReturn() {

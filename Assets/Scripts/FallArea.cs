@@ -21,6 +21,7 @@ public class FallArea : MonoBehaviour {
 		if (other.gameObject.layer == 10) { //player
 			Debug.Log("Corgi fell");
 			int playerScore = other.GetComponent<PlatformerCharacter2D> ().GetPoints ();
+			other.GetComponent<PlatformerCharacter2D> ().CorgiFell ();
 			menu.Death(playerScore);
 			//täällä vois esim soittaa musaa tjsp
 		}
