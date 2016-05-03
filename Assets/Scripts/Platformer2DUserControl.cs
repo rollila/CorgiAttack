@@ -29,7 +29,7 @@ namespace UnityStandardAssets._2D
             if (!m_Dash)
             {
                 //Fire1 for Dash? Pitää asettaa oikee Edit -> Project Settings -> Input Settings...
-                m_Dash = CrossPlatformInputManager.GetButtonDown("Fire1");
+                m_Dash = CrossPlatformInputManager.GetButtonDown("Dash");
             }
         }
 

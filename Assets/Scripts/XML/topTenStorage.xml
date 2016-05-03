@@ -18,18 +18,18 @@
     </Ranking>
     <Ranking>
       <rank>4</rank>
-      <name>bird</name>
-      <score>2000</score>
+      <name>Fluffy</name>
+      <score>2248</score>
     </Ranking>
     <Ranking>
       <rank>5</rank>
-      <name>Lissu</name>
-      <score>1699</score>
+      <name>Fluffy</name>
+      <score>1910</score>
     </Ranking>
     <Ranking>
       <rank>6</rank>
       <name>Fluffy</name>
-      <score>1595</score>
+      <score>1822</score>
     </Ranking>
     <Ranking>
       <rank>7</rank>
@@ -49,7 +49,7 @@
     <Ranking>
       <rank>10</rank>
       <name>Fluffy</name>
-      <score>1203</score>
+      <score>1212</score>
     </Ranking>
   </TopTen>
 </StatCollection>
