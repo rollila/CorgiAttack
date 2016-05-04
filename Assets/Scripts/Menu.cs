@@ -18,6 +18,7 @@ public class Menu : MonoBehaviour {
 	public GameObject doYouReallyScreen;
 	public GameObject enterNameScreen;
 	public GameObject settingsScreen;
+	public GameObject logo;
 
 	//Assorted stuff
 	private GameObject currentScreen;
@@ -140,6 +141,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void StartPressed() {
+		logo.SetActive (false);
 		Time.timeScale = 1;
 		DeactivateStartScreen ();
 	}
@@ -258,6 +260,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void ActivateStartScreen() {
+		logo.SetActive (true);
 		SetCurrentScreen (startScreen);
 		startScreen.SetActive (true);
 	}
