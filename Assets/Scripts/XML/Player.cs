@@ -17,10 +17,10 @@ public class Player {
 	public int highScore;
 
 	[XmlElement("lessDoge")]
-	public int lessDoge;
+	public bool lessDoge;
 
 	[XmlElement("moreDoge")]
-	public int moreDoge;
+	public bool moreDoge;
 
 	[XmlElement("musicVol")]
 	public int musicVol;

@@ -24,6 +24,7 @@ public class Menu : MonoBehaviour {
 	private AudioSource audioS;
 
 	//Settings
+	private bool moreDoge;
 	private bool lessDoge;
 	private int musicVol;
 	public GameObject moreDogeScreen;
@@ -36,6 +37,11 @@ public class Menu : MonoBehaviour {
 
 	void Start() {
 		Player player = handler.GetStats();
+
+		lessDoge = player.lessDoge;
+		moreDoge = player.moreDoge;
+		ToggleMoreDoge (moreDoge);
+
 
 		if (player.playerName == null) {
 			EnterName ();
@@ -85,22 +91,20 @@ public class Menu : MonoBehaviour {
 		Toggle ExtraDoge = GameObject.Find ("ExtraDogeToggle").gameObject.GetComponent<Toggle> ();
 		Toggle LessDoge = GameObject.Find ("LessDogeToggle").gameObject.GetComponent<Toggle> ();
 
-		if (player.lessDoge == 0) {
-			LessDoge.isOn = false;
-		} else if (player.lessDoge == 1) {
-			LessDoge.isOn = true;
-		}
-
-		if (player.moreDoge == 0) {
-			ExtraDoge.isOn = false;
-		} else if (player.moreDoge == 1) {
-			ExtraDoge.isOn = true;
-		}
+		LessDoge.isOn = player.lessDoge;
+		ExtraDoge.isOn = player.moreDoge;
 
 		//player.musicVol //tallennettu musiikkivolume
 	}
 
-	void SaveSettings() {
+	public void SaveSettings() {
+		Player player = handler.GetStats();
+		player.lessDoge = lessDoge;
+		player.moreDoge = moreDoge;
+		//player.musicVol //tallennettu musiikkivolume
+
+		handler.SaveStats (player);
+		ReturnPressed ();
 	}
 
 	public bool GetLessDoge() {
@@ -112,6 +116,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void ToggleMoreDoge(bool newVal) {
+		moreDoge = newVal;
 		moreDogeScreen.SetActive (newVal);
 	}
 
