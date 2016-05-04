@@ -23,5 +23,8 @@ public class Player {
 	public bool moreDoge;
 
 	[XmlElement("musicVol")]
-	public int musicVol;
+	public float musicVol;
+
+	[XmlElement("sfxVol")]
+	public float sfxVol;
 }

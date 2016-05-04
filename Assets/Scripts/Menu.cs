@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -26,8 +27,11 @@ public class Menu : MonoBehaviour {
 	//Settings
 	private bool moreDoge;
 	private bool lessDoge;
-	private int musicVol;
+	private float musicVol;
+	private float sfxVol;
 	public GameObject moreDogeScreen;
+	public AudioMixer mixer;
+
 
 	void Awake() {
 		Time.timeScale = 0; //pause game
@@ -36,12 +40,14 @@ public class Menu : MonoBehaviour {
 	}
 
 	void Start() {
+		//lue tallennetut settingingit:
 		Player player = handler.GetStats();
-
+	
 		lessDoge = player.lessDoge;
 		moreDoge = player.moreDoge;
 		ToggleMoreDoge (moreDoge);
-
+		SetSFXVolume (player.sfxVol);
+		SetMusicVolume (player.musicVol);
 
 		if (player.playerName == null) {
 			EnterName ();
@@ -90,21 +96,34 @@ public class Menu : MonoBehaviour {
 		Player player = handler.GetStats();
 		Toggle ExtraDoge = GameObject.Find ("ExtraDogeToggle").gameObject.GetComponent<Toggle> ();
 		Toggle LessDoge = GameObject.Find ("LessDogeToggle").gameObject.GetComponent<Toggle> ();
+		Slider music = GameObject.Find ("MusicSlider").gameObject.GetComponent<Slider> ();
+		Slider SFX = GameObject.Find ("SFXSlider").gameObject.GetComponent<Slider> ();
 
 		LessDoge.isOn = player.lessDoge;
 		ExtraDoge.isOn = player.moreDoge;
-
-		//player.musicVol //tallennettu musiikkivolume
+		music.value = player.musicVol;
+		SFX.value = player.sfxVol;
 	}
 
 	public void SaveSettings() {
 		Player player = handler.GetStats();
 		player.lessDoge = lessDoge;
 		player.moreDoge = moreDoge;
-		//player.musicVol //tallennettu musiikkivolume
+		player.musicVol = musicVol;
+		player.sfxVol = sfxVol;
 
 		handler.SaveStats (player);
 		ReturnPressed ();
+	}
+
+	public void SetSFXVolume(float sVol) {
+		mixer.SetFloat ("SFXVol", sVol);
+		sfxVol = sVol;
+	}
+
+	public void SetMusicVolume(float mVol) {
+		mixer.SetFloat ("MusicVol", mVol);
+		musicVol = mVol;
 	}
 
 	public bool GetLessDoge() {

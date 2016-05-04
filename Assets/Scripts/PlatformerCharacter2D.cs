@@ -41,7 +41,6 @@ namespace UnityStandardAssets._2D
 		public AudioClip jumpSound;
 		public AudioClip collisionSound;
 		public AudioClip dashSound;
-		private float jumpVol;
 
 
         private void Awake()
@@ -58,7 +57,6 @@ namespace UnityStandardAssets._2D
 			menu = canvas.GetComponent<Menu> ();
 			prevP = -1f;
 			audioS = GetComponent<AudioSource> ();
-			jumpVol = 0.05f; //hyppy SFX on TOSI ‰‰nek‰s
         }
 
 
@@ -136,8 +134,7 @@ namespace UnityStandardAssets._2D
 			if (m_Grounded && jump && m_Anim.GetBool("Ground") || !m_Doublejump && jump && !m_Grounded)
             {
 				//sound
-				float jumpVol = 0.05f;
-				audioS.PlayOneShot (jumpSound, jumpVol);
+				audioS.PlayOneShot (jumpSound);
 
 				//Doublejump
 				if (!m_Doublejump && !m_Grounded) {
