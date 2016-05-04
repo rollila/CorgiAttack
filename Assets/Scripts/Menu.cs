@@ -15,6 +15,7 @@ public class Menu : MonoBehaviour {
 	public GameObject howToScreen;
 	public GameObject doYouReallyScreen;
 	public GameObject enterNameScreen;
+	public GameObject settingsScreen;
 	private GameObject currentScreen;
 
 	private StatHandler handler;
@@ -64,6 +65,12 @@ public class Menu : MonoBehaviour {
 	
 	public void QuitPressed() {
 		Application.Quit ();
+	}
+
+	public void SettingsPressed() {
+		DeactivateStartScreen ();
+		settingsScreen.SetActive (true);
+		SetCurrentScreen (settingsScreen);
 	}
 
 	public void StartPressed() {
