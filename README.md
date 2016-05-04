@@ -1,10 +1,13 @@
 # Corgipeli!
 
-Time to make music choices!
+TODO:
+  - eritasoiset platformit jne.
+  - musiikki/äänivalintoja
+  - namut/poimittavat
+  - bugi vai feature: hyppy resettaa jos poimii perhosen?
 
-Tässä CC lisensoituja biisejä:
 
-MUSIC:
+Tässä jotain CreativeCommons musia:
 
 //imo parhaat
 
