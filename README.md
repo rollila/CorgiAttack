@@ -5,7 +5,7 @@ TODO:
   - musiikki/äänivalintoja (ois kiva saada jotain söpöä haukkumista?)
   - namut/poimittavat
   - bugi vai feature: hyppy resettaa jos poimii perhosen? (saattaa sekoittaa animaatioita myös)
-  - logo
+  - halutaanko et on 3 elämää kuten RUAssa?
   - animaatioita vois parantaa...
 
 
