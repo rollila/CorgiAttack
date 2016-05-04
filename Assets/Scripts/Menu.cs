@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
+	//All UI Windows
 	public GameObject startScreen;
 	public GameObject statScreen;
 	public GameObject scoreboardScreen;
@@ -16,14 +17,21 @@ public class Menu : MonoBehaviour {
 	public GameObject doYouReallyScreen;
 	public GameObject enterNameScreen;
 	public GameObject settingsScreen;
-	private GameObject currentScreen;
 
+	//Assorted stuff
+	private GameObject currentScreen;
 	private StatHandler handler;
+	private AudioSource audioS;
+
+	//Settings
+	private bool lessDoge;
+	private int musicVol;
+	public GameObject moreDogeScreen;
 
 	void Awake() {
 		Time.timeScale = 0; //pause game
 		handler = GetComponent<StatHandler> ();
-		//playerName = "Lissu"; //väliaikainen saa toki vaihtaa, en oo pistäny mihinkää et mistä voi syöttää
+		audioS = GetComponent<AudioSource> ();
 	}
 
 	void Start() {
@@ -71,6 +79,40 @@ public class Menu : MonoBehaviour {
 		DeactivateStartScreen ();
 		settingsScreen.SetActive (true);
 		SetCurrentScreen (settingsScreen);
+
+		//togglet
+		Player player = handler.GetStats();
+		Toggle ExtraDoge = GameObject.Find ("ExtraDogeToggle").gameObject.GetComponent<Toggle> ();
+		Toggle LessDoge = GameObject.Find ("LessDogeToggle").gameObject.GetComponent<Toggle> ();
+
+		if (player.lessDoge == 0) {
+			LessDoge.isOn = false;
+		} else if (player.lessDoge == 1) {
+			LessDoge.isOn = true;
+		}
+
+		if (player.moreDoge == 0) {
+			ExtraDoge.isOn = false;
+		} else if (player.moreDoge == 1) {
+			ExtraDoge.isOn = true;
+		}
+
+		//player.musicVol //tallennettu musiikkivolume
+	}
+
+	void SaveSettings() {
+	}
+
+	public bool GetLessDoge() {
+		return lessDoge;
+	}
+
+	public void ToggleLessDoge(bool newVal) {
+		lessDoge = newVal;
+	}
+
+	public void ToggleMoreDoge(bool newVal) {
+		moreDogeScreen.SetActive (newVal);
 	}
 
 	public void StartPressed() {
@@ -197,6 +239,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void SetCurrentScreen(GameObject screen) {
+		audioS.Play ();
 		currentScreen = screen;
 	}
 }

@@ -15,4 +15,13 @@ public class Player {
 
 	[XmlElement("highScore")]
 	public int highScore;
+
+	[XmlElement("lessDoge")]
+	public int lessDoge;
+
+	[XmlElement("moreDoge")]
+	public int moreDoge;
+
+	[XmlElement("musicVol")]
+	public int musicVol;
 }
