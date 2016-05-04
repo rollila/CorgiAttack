@@ -49,6 +49,7 @@
      <None Include="Assets\Scripts\XML\playerStatStorage.xml" />
      <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\topTenStorage 1.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Music\credit_for_music.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
      <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\playerStatStorage 1.xml" />

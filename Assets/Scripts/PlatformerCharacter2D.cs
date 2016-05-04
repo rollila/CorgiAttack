@@ -35,6 +35,14 @@ namespace UnityStandardAssets._2D
 		private Canvas canvas;
 		private Menu menu;
 
+		//Audio
+		//Pit‰is lˆyt‰‰ parempia ‰‰ni‰
+		private AudioSource audioS;
+		public AudioClip jumpSound;
+		public AudioClip collisionSound;
+		public AudioClip dashSound;
+		private float jumpVol;
+
 
         private void Awake()
         {
@@ -49,6 +57,8 @@ namespace UnityStandardAssets._2D
 			canvas = GameObject.Find ("Canvas").GetComponent<Canvas>();
 			menu = canvas.GetComponent<Menu> ();
 			prevP = -1f;
+			audioS = GetComponent<AudioSource> ();
+			jumpVol = 0.05f; //hyppy SFX on TOSI ‰‰nek‰s
         }
 
 
@@ -125,6 +135,10 @@ namespace UnityStandardAssets._2D
             // If the player should jump...
 			if (m_Grounded && jump && m_Anim.GetBool("Ground") || !m_Doublejump && jump && !m_Grounded)
             {
+				//sound
+				float jumpVol = 0.05f;
+				audioS.PlayOneShot (jumpSound, jumpVol);
+
 				//Doublejump
 				if (!m_Doublejump && !m_Grounded) {
 					m_Doublejump = true;
@@ -159,10 +173,12 @@ namespace UnityStandardAssets._2D
 				m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f), ForceMode2D.Impulse);
 				m_Dashing = true;
 				StartCoroutine (WaitDash());
+				audioS.PlayOneShot (dashSound);
             }
         }
 			
 		public void CorgiCollision() {
+			audioS.PlayOneShot (collisionSound);
 			m_Anim.SetBool("Collision", true);
 			//Debug.Log ("Corgi collision animation should be playing??");
 		}
