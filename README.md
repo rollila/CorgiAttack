@@ -1,10 +1,12 @@
 # Corgipeli!
 
 TODO:
-  - eritasoiset platformit jne.
-  - musiikki/äänivalintoja
+  - eritasoiset platformit jne. (minimissään: platformien etäisyys pitää kasvaa kun nopeus kasvaa)
+  - musiikki/äänivalintoja (ois kiva saada jotain söpöä haukkumista?)
   - namut/poimittavat
-  - bugi vai feature: hyppy resettaa jos poimii perhosen?
+  - bugi vai feature: hyppy resettaa jos poimii perhosen? (saattaa sekoittaa animaatioita myös)
+  - logo
+  - animaatioita vois parantaa...
 
 
 Tässä jotain CreativeCommons musia:
