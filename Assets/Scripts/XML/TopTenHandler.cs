@@ -6,7 +6,7 @@ using UnityEngine;
 using System.Collections;
 
 public class TopTenHandler : MonoBehaviour {
-	private string topTenXMLfilepath = "Scripts/XML/topTenStorage.xml";
+	private string topTenXMLfilepath = "topTenStorage.xml";
 	private Ranking rank;
 
 	// Use this for initialization

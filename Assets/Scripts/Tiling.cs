@@ -22,8 +22,9 @@ public class Tiling : MonoBehaviour {
         if (transform.position.x / movedX > 15)
         {
             Debug.Log("Spawn shit now");
-			Instantiate(spawnables[Random.Range(0, 7)], new Vector3(transform.position.x+offCamera, transform.position.y-fixY, 0-5), Quaternion.identity);
+			Instantiate(spawnables[Random.Range(0, 9)], new Vector3(transform.position.x+offCamera, transform.position.y-fixY, 0-5), Quaternion.identity);
             movedX++;
+			offCamera++;
         }
 
 	

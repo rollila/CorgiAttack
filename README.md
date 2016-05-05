@@ -1,13 +1,13 @@
 # Corgipeli!
 
 TODO:
-  - eritasoiset platformit jne. (minimissään: platformien etäisyys pitää kasvaa kun nopeus kasvaa)
+  - platformit spawnaa suunnitelmallisesti eri tasoissa
   - musiikki/äänivalintoja (ois kiva saada jotain söpöä haukkumista?)
   - namut/poimittavat
-  - bugi vai feature: hyppy resettaa jos poimii perhosen? (saattaa sekoittaa animaatioita myös)
   - halutaanko et on 3 elämää kuten RUAssa?
   - animaatioita vois parantaa...
 
+TÄRKEÄÄ: Jos haluaa BUILD/RUN niin pitää ottaa XML-tiedostot "XML FOR BUILD" kansiosta ja pistää cg_Data kansion juureen! Muuten ei toimi! (ne tiedostot siellä on ns "tyhjiä" eli ei esim. mitään pelaajatietoja.
 
 Tässä jotain CreativeCommons musia:
 

@@ -6,7 +6,7 @@ using UnityEngine;
 using System.Collections;
 
 public class StatHandler : MonoBehaviour {
-	private string playerStatsXMLfilepath = "Scripts/XML/playerStatStorage.xml";
+	private string playerStatsXMLfilepath = "playerStatStorage.xml";
 
 	private Player stat;
 	private StatCollector collector;
