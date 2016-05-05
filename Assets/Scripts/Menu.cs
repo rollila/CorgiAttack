@@ -67,7 +67,6 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void SubmitNameButton() {
-		InputField field = enterNameScreen.GetComponent<InputField> ();
 		string text = enterNameScreen.transform.FindChild("InputField").FindChild("Text").GetComponent<Text>().text;
 		SubmitName (text);
 		currentScreen.SetActive (false);
