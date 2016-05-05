@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StatCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PlayerStats>
+    <Player>
+      <totalPoints>0</totalPoints>
+      <totalRounds>0</totalRounds>
+      <highScore>0</highScore>
+      <lessDoge>false</lessDoge>
+      <moreDoge>false</moreDoge>
+      <musicVol>-7.74719429</musicVol>
+      <sfxVol>-35.61389</sfxVol>
+    </Player>
+  </PlayerStats>
+</StatCollection>

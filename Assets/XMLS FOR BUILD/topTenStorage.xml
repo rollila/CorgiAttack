@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="Windows-1252"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StatCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TopTen>
     <Ranking>
@@ -13,43 +13,43 @@
     </Ranking>
     <Ranking>
       <rank>3</rank>
-      <name>Fluffy</name>
-      <score>3115</score>
+      <name>cat</name>
+      <score>3000</score>
     </Ranking>
     <Ranking>
       <rank>4</rank>
-      <name>Fluffy</name>
-      <score>2748</score>
+      <name>bird</name>
+      <score>2000</score>
     </Ranking>
     <Ranking>
       <rank>5</rank>
-      <name>Fluffy</name>
-      <score>2609</score>
+      <name>pidgeon</name>
+      <score>1500</score>
     </Ranking>
     <Ranking>
       <rank>6</rank>
-      <name>Fluffy</name>
-      <score>2446</score>
+      <name>sock</name>
+      <score>1000</score>
     </Ranking>
     <Ranking>
       <rank>7</rank>
       <name>Fluffy</name>
-      <score>2172</score>
+      <score>948</score>
     </Ranking>
     <Ranking>
       <rank>8</rank>
-      <name>Fluffy</name>
-      <score>1977</score>
+      <name>Mila</name>
+      <score>518</score>
     </Ranking>
     <Ranking>
       <rank>9</rank>
-      <name>Fluffy</name>
-      <score>1923</score>
+      <name>temp</name>
+      <score>0</score>
     </Ranking>
     <Ranking>
       <rank>10</rank>
-      <name>Fluffy</name>
-      <score>1861</score>
+      <name>temp</name>
+      <score>0</score>
     </Ranking>
   </TopTen>
 </StatCollection>

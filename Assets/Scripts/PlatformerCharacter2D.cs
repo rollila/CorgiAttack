@@ -7,8 +7,8 @@ namespace UnityStandardAssets._2D
     public class PlatformerCharacter2D : MonoBehaviour
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-        [SerializeField] private float m_JumpForce = 800f;
-		[SerializeField] private float m_DJumpForce = 500f;
+        [SerializeField] private float m_JumpForce = 15f;
+		[SerializeField] private float m_DJumpForce = 10f;
 		[SerializeField] private float m_DashForce = 100f;  
 		[SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -90,6 +90,7 @@ namespace UnityStandardAssets._2D
             }
 
 			//corgi on jumissa ja pelin pitää päättyä, nopeutta ei voi kattoa koska se pakotetaan corgille ni katon updatesyklien välissä et paikka muuttuu
+			//tahmainen/huono
 			if (transform.position.x == prevP) {
 				Debug.Log ("Corgi is stuck");
 				CorgiCollision ();
@@ -151,7 +152,7 @@ namespace UnityStandardAssets._2D
 
 					m_Anim.SetBool("Falling", false);
 				}
-				//Feature: Jos corgi osuu perhoseen yhden hypyn jälkeen, hypyt resettaa ja corgi voi tällöin hypätä 3x...
+
 				//Jump
 				else if (m_Grounded) {
 	                m_Grounded = false;
