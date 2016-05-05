@@ -176,8 +176,10 @@ namespace UnityStandardAssets._2D
         }
 			
 		public void CorgiCollision() {
+			audioS.PlayOneShot (collisionSound, 20f); //t‰‰ on tosi hiljanen
+			m_Anim.SetTrigger ("Angel");
 			audioS.PlayOneShot (collisionSound);
-			m_Anim.SetBool("Collision", true);
+			//m_Anim.SetBool("Collision", true);
 			//Debug.Log ("Corgi collision animation should be playing??");
 		}
 
@@ -186,7 +188,7 @@ namespace UnityStandardAssets._2D
 		}
 
 		IEnumerator WaitDash() {
-			yield return new WaitForSeconds (0.4f); //pituus
+			yield return new WaitForSeconds (0.3f); //pituus
 			m_Anim.SetBool("Dash", false);
 			m_Dashing = false;
 		}
