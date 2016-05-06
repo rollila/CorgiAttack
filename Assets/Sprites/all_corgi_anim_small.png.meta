@@ -1,0 +1,634 @@
+fileFormatVersion: 2
+guid: 26ff77f5de6cfbc498e56243e1cba5ad
+timeCreated: 1462472363
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: all_corgi_anim_small_0
+    21300002: all_corgi_anim_small_1
+    21300004: all_corgi_anim_small_2
+    21300006: all_corgi_anim_small_3
+    21300008: all_corgi_anim_small_4
+    21300010: all_corgi_anim_small_5
+    21300012: all_corgi_anim_small_6
+    21300014: all_corgi_anim_small_7
+    21300016: all_corgi_anim_small_8
+    21300018: all_corgi_anim_small_9
+    21300020: all_corgi_anim_small_10
+    21300022: all_corgi_anim_small_11
+    21300024: all_corgi_anim_small_12
+    21300026: all_corgi_anim_small_13
+    21300028: all_corgi_anim_small_14
+    21300030: all_corgi_anim_small_15
+    21300032: all_corgi_anim_small_16
+    21300034: all_corgi_anim_small_17
+    21300036: all_corgi_anim_small_18
+    21300038: all_corgi_anim_small_19
+    21300040: all_corgi_anim_small_20
+    21300042: all_corgi_anim_small_21
+    21300044: all_corgi_anim_small_22
+    21300046: all_corgi_anim_small_23
+    21300048: all_corgi_anim_small_24
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: all_corgi_anim_small_0
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 3862
+        width: 738
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70.9133, y: 98.65918}
+        - {x: -11.0867, y: 98.65918}
+        - {x: -103.0867, y: 51.65918}
+        - {x: -103.0867, y: -98.34082}
+        - {x: 38.9133, y: -98.34082}
+        - {x: 52.9133, y: -73.34082}
+        - {x: 103.9133, y: -7.3408203}
+        - {x: 103.9133, y: 46.65918}
+    - name: all_corgi_anim_small_1
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 3862
+        width: 738
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 73.90021, y: 98.15918}
+        - {x: -17.099792, y: 98.15918}
+        - {x: -103.09979, y: 59.15918}
+        - {x: -103.09979, y: -97.84082}
+        - {x: 67.90021, y: -97.84082}
+        - {x: 103.90021, y: -7.8408203}
+        - {x: 103.90021, y: 61.15918}
+        - {x: 78.90021, y: 93.15918}
+    - name: all_corgi_anim_small_2
+      rect:
+        serializedVersion: 2
+        x: 1753
+        y: 3859
+        width: 738
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 66.887115, y: 98.821655}
+        - {x: 14.8871155, y: 98.821655}
+        - {x: -103.112885, y: 54.821655}
+        - {x: -103.112885, y: -98.178345}
+        - {x: 78.887115, y: -98.178345}
+        - {x: 103.887115, y: -35.178345}
+        - {x: 103.887115, y: 46.821655}
+        - {x: 78.887115, y: 89.821655}
+    - name: all_corgi_anim_small_3
+      rect:
+        serializedVersion: 2
+        x: 2552
+        y: 3859
+        width: 738
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 103.944885, y: 42.821655}
+        - {x: 71.944885, y: 98.821655}
+        - {x: 4.9448853, y: 98.821655}
+        - {x: -103.055115, y: 28.821655}
+        - {x: -103.055115, y: -96.178345}
+        - {x: -96.055115, y: -98.178345}
+        - {x: 21.944885, y: -98.178345}
+        - {x: 59.944885, y: -77.178345}
+        - {x: 103.944885, y: 8.821655}
+    - name: all_corgi_anim_small_4
+      rect:
+        serializedVersion: 2
+        x: 3330
+        y: 3862
+        width: 766
+        height: 704
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 108.140076, y: 17.65918}
+        - {x: 108.140076, y: 32.65918}
+        - {x: 67.140076, y: 98.65918}
+        - {x: 31.140076, y: 98.65918}
+        - {x: 26.140076, y: 88.65918}
+        - {x: 22.140076, y: 66.65918}
+        - {x: 23.140076, y: 47.65918}
+        - {x: -46.859924, y: 44.65918}
+        - {x: -70.859924, y: 41.65918}
+        - {x: -106.859924, y: 38.65918}
+        - {x: -106.859924, y: -98.34082}
+        - {x: 52.140076, y: -98.34082}
+        - {x: 60.140076, y: -79.34082}
+        - {x: 58.140076, y: -64.34082}
+        - {x: 105.140076, y: 9.65918}
+    - name: all_corgi_anim_small_5
+      rect:
+        serializedVersion: 2
+        x: 4250
+        y: 3852
+        width: 774
+        height: 709
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 67.97754, y: 99.86743}
+        - {x: -61.02246, y: 99.86743}
+        - {x: -108.02246, y: 27.867432}
+        - {x: -108.02246, y: -99.13257}
+        - {x: 45.97754, y: -99.13257}
+        - {x: 99.97754, y: -83.13257}
+        - {x: 108.97754, y: -57.13257}
+        - {x: 108.97754, y: 47.86743}
+    - name: all_corgi_anim_small_6
+      rect:
+        serializedVersion: 2
+        x: 5665
+        y: 3719
+        width: 827
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -94.49512, y: 89.73767}
+        - {x: -110.49512, y: 24.73767}
+        - {x: -115.49512, y: 11.737671}
+        - {x: -115.49512, y: -20.26233}
+        - {x: -45.495117, y: -89.26233}
+        - {x: 49.504883, y: -89.26233}
+        - {x: 116.50488, y: -50.26233}
+        - {x: 116.50488, y: 89.73767}
+    - name: all_corgi_anim_small_7
+      rect:
+        serializedVersion: 2
+        x: 6775
+        y: 3647
+        width: 561
+        height: 903
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -78.11511, y: 126.63739}
+        - {x: -78.11511, y: -126.36261}
+        - {x: -40.115112, y: -126.36261}
+        - {x: 78.88489, y: -33.36261}
+        - {x: 78.88489, y: 126.63739}
+    - name: all_corgi_anim_small_8
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 3142
+        width: 766
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 107.04634, y: 31.155884}
+        - {x: 79.04634, y: 99.15588}
+        - {x: 17.04634, y: 99.15588}
+        - {x: -106.95366, y: 42.155884}
+        - {x: -106.95366, y: -89.84412}
+        - {x: -95.95366, y: -98.84412}
+        - {x: 79.04634, y: -98.84412}
+        - {x: 108.04634, y: 5.155884}
+        - {x: 108.04634, y: 27.155884}
+    - name: all_corgi_anim_small_9
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 3143
+        width: 795
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70.083405, y: 99.43506}
+        - {x: 21.083405, y: 99.43506}
+        - {x: -102.916595, y: 66.43506}
+        - {x: -110.916595, y: 32.43506}
+        - {x: -110.916595, y: -97.56494}
+        - {x: -109.916595, y: -98.56494}
+        - {x: 66.083405, y: -98.56494}
+        - {x: 112.083405, y: -2.5649414}
+        - {x: 112.083405, y: 61.43506}
+        - {x: 80.083405, y: 91.43506}
+    - name: all_corgi_anim_small_10
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 3139
+        width: 817
+        height: 716
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.067078, y: 100.81842}
+        - {x: -114.06708, y: 84.81842}
+        - {x: -114.06708, y: -86.18158}
+        - {x: -107.06708, y: -100.18158}
+        - {x: 48.932922, y: -100.18158}
+        - {x: 50.932922, y: -99.18158}
+        - {x: 114.93292, y: -5.1815796}
+        - {x: 114.93292, y: 100.81842}
+    - name: all_corgi_anim_small_11
+      rect:
+        serializedVersion: 2
+        x: 2706
+        y: 3121
+        width: 860
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32.937256, y: 98.793335}
+        - {x: -88.062744, y: 42.793335}
+        - {x: -120.062744, y: -40.206665}
+        - {x: -120.062744, y: -61.206665}
+        - {x: -105.062744, y: -86.206665}
+        - {x: -69.062744, y: -98.206665}
+        - {x: 42.937256, y: -98.206665}
+        - {x: 79.937256, y: -62.206665}
+        - {x: 120.937256, y: 7.793335}
+        - {x: 120.937256, y: 48.793335}
+        - {x: 89.937256, y: 98.793335}
+    - name: all_corgi_anim_small_12
+      rect:
+        serializedVersion: 2
+        x: 3677
+        y: 3132
+        width: 792
+        height: 709
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.4875488, y: 99.8642}
+        - {x: -110.48755, y: 25.864197}
+        - {x: -110.48755, y: -91.1358}
+        - {x: -104.48755, y: -99.1358}
+        - {x: 38.51245, y: -99.1358}
+        - {x: 111.51245, y: -37.135803}
+        - {x: 111.51245, y: 72.8642}
+        - {x: 104.51245, y: 99.8642}
+    - name: all_corgi_anim_small_13
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 2416
+        width: 738
+        height: 709
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50.045258, y: 99.9776}
+        - {x: -103.04526, y: 85.9776}
+        - {x: -103.04526, y: -96.0224}
+        - {x: -100.04526, y: -99.0224}
+        - {x: -69.04526, y: -99.0224}
+        - {x: -60.045258, y: -83.0224}
+        - {x: -37.045258, y: -99.0224}
+        - {x: 5.9547424, y: -99.0224}
+        - {x: 43.954742, y: -67.0224}
+        - {x: 103.95474, y: 14.9776}
+        - {x: 103.95474, y: 65.9776}
+        - {x: 93.95474, y: 99.9776}
+    - name: all_corgi_anim_small_14
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 2416
+        width: 738
+        height: 709
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68.92093, y: 99.9776}
+        - {x: 24.920929, y: 99.9776}
+        - {x: 19.920929, y: 70.9776}
+        - {x: 19.920929, y: 50.9776}
+        - {x: 22.920929, y: 38.9776}
+        - {x: -66.07907, y: 43.9776}
+        - {x: -74.07907, y: 39.9776}
+        - {x: -82.07907, y: 26.9776}
+        - {x: -97.07907, y: 30.9776}
+        - {x: -103.07907, y: 31.9776}
+        - {x: -103.07907, y: -52.0224}
+        - {x: -99.07907, y: -92.0224}
+        - {x: -84.07907, y: -99.0224}
+        - {x: 27.920929, y: -99.0224}
+        - {x: 103.92093, y: 7.9776}
+        - {x: 103.92093, y: 28.9776}
+        - {x: 102.92093, y: 29.9776}
+    - name: all_corgi_anim_small_15
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 2426
+        width: 738
+        height: 695
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 90.98306, y: 97.76935}
+        - {x: 4.9830627, y: 97.76935}
+        - {x: -103.01694, y: 47.76935}
+        - {x: -103.01694, y: -83.23065}
+        - {x: -102.01694, y: -91.23065}
+        - {x: -89.01694, y: -97.23065}
+        - {x: -60.016937, y: -97.23065}
+        - {x: -48.016937, y: -92.23065}
+        - {x: -36.016937, y: -97.23065}
+        - {x: 25.983063, y: -97.23065}
+        - {x: 73.98306, y: -40.23065}
+        - {x: 103.98306, y: 7.769348}
+        - {x: 103.98306, y: 62.76935}
+    - name: all_corgi_anim_small_16
+      rect:
+        serializedVersion: 2
+        x: 4974
+        y: 1617
+        width: 1060
+        height: 1464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 149.09753, y: -26.58017}
+        - {x: 72.097534, y: -1.5801697}
+        - {x: 75.097534, y: -18.58017}
+        - {x: 76.097534, y: -19.58017}
+        - {x: 76.097534, y: -22.58017}
+        - {x: 70.097534, y: -16.58017}
+        - {x: 81.097534, y: 104.41983}
+        - {x: 76.097534, y: 137.41983}
+        - {x: 45.097534, y: 177.41983}
+        - {x: 18.097534, y: 195.41983}
+        - {x: -4.902466, y: 205.41983}
+        - {x: -87.902466, y: 205.41983}
+        - {x: -147.90247, y: 152.41983}
+        - {x: -147.90247, y: 59.41983}
+        - {x: -116.902466, y: 20.41983}
+        - {x: 3.0975342, y: -95.58017}
+        - {x: -17.902466, y: -117.58017}
+        - {x: 5.097534, y: -204.58017}
+        - {x: 50.097534, y: -204.58017}
+        - {x: 58.097534, y: -176.58017}
+        - {x: 125.097534, y: -180.58017}
+        - {x: 149.09753, y: -150.58017}
+    - name: all_corgi_anim_small_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1402
+        width: 776
+        height: 541
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -94.5, y: 76.39801}
+        - {x: -102.5, y: 72.39801}
+        - {x: -108.5, y: 47.39801}
+        - {x: -108.5, y: -68.60199}
+        - {x: -102.5, y: -74.60199}
+        - {x: -99.5, y: -75.60199}
+        - {x: 82.5, y: -75.60199}
+        - {x: 108.5, y: -29.60199}
+        - {x: 108.5, y: 41.39801}
+        - {x: 65.5, y: 76.39801}
+    - name: all_corgi_anim_small_18
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1377
+        width: 778
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.412201, y: 73.41873}
+        - {x: 10.412201, y: 71.41873}
+        - {x: 12.412201, y: 66.41873}
+        - {x: 14.412201, y: 65.41873}
+        - {x: 6.412201, y: 65.41873}
+        - {x: -100.5878, y: 69.41873}
+        - {x: -108.5878, y: 44.41873}
+        - {x: -108.5878, y: -72.58127}
+        - {x: 85.4122, y: -72.58127}
+        - {x: 109.4122, y: -21.581268}
+        - {x: 109.4122, y: 36.41873}
+        - {x: 68.4122, y: 73.41873}
+    - name: all_corgi_anim_small_19
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 1348
+        width: 792
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -104.633606, y: 71.822784}
+        - {x: -110.633606, y: 70.822784}
+        - {x: -110.633606, y: 26.822784}
+        - {x: -99.633606, y: 20.822784}
+        - {x: -89.633606, y: 16.822784}
+        - {x: -81.633606, y: 15.822784}
+        - {x: -81.633606, y: 13.822784}
+        - {x: -84.633606, y: 14.822784}
+        - {x: -87.633606, y: 16.822784}
+        - {x: -89.633606, y: 16.822784}
+        - {x: -94.633606, y: 11.822784}
+        - {x: -110.633606, y: -45.177216}
+        - {x: -110.633606, y: -56.177216}
+        - {x: -97.633606, y: -71.177216}
+        - {x: 83.366394, y: -71.177216}
+        - {x: 111.366394, y: 2.8227844}
+        - {x: 111.366394, y: 39.822784}
+        - {x: 51.366394, y: 71.822784}
+    - name: all_corgi_anim_small_20
+      rect:
+        serializedVersion: 2
+        x: 2738
+        y: 1309
+        width: 835
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62.629272, y: 69.93509}
+        - {x: -116.62927, y: 55.93509}
+        - {x: -116.62927, y: 34.93509}
+        - {x: -108.62927, y: 26.93509}
+        - {x: -101.62927, y: 22.93509}
+        - {x: -108.62927, y: -51.06491}
+        - {x: -90.62927, y: -69.06491}
+        - {x: 90.37073, y: -69.06491}
+        - {x: 117.37073, y: -26.06491}
+        - {x: 117.37073, y: 46.93509}
+        - {x: 79.37073, y: 69.93509}
+    - name: all_corgi_anim_small_21
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 27
+        width: 595
+        height: 902
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 51.95038, y: 127.03762}
+        - {x: -61.04962, y: 127.03762}
+        - {x: -83.04962, y: 41.03762}
+        - {x: -83.04962, y: -81.96238}
+        - {x: -71.04962, y: -125.96238}
+        - {x: -35.04962, y: -125.96238}
+        - {x: 83.95038, y: -17.96238}
+        - {x: 83.95038, y: 33.03762}
+        - {x: 82.95038, y: 38.03762}
+    - name: all_corgi_anim_small_22
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 27
+        width: 620
+        height: 902
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49.528885, y: 118.03762}
+        - {x: 22.528885, y: 104.03762}
+        - {x: 5.528885, y: 127.03762}
+        - {x: -63.471115, y: 127.03762}
+        - {x: -86.471115, y: 29.03762}
+        - {x: -86.471115, y: -117.96238}
+        - {x: -83.471115, y: -125.96238}
+        - {x: -30.471115, y: -125.96238}
+        - {x: 82.528885, y: -52.96238}
+        - {x: 87.528885, y: -36.96238}
+        - {x: 87.528885, y: 75.03762}
+        - {x: 65.528885, y: 119.03762}
+    - name: all_corgi_anim_small_23
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 0
+        width: 659
+        height: 901
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42.05945, y: 98}
+        - {x: -11.059448, y: 59}
+        - {x: -82.05945, y: -21}
+        - {x: -92.05945, y: -36}
+        - {x: -92.05945, y: -107}
+        - {x: -78.05945, y: -126}
+        - {x: -30.059448, y: -126}
+        - {x: 92.94055, y: -24}
+        - {x: 92.94055, y: 85}
+        - {x: 81.94055, y: 126}
+        - {x: -29.059448, y: 126}
+        - {x: -38.05945, y: 122}
+    - name: all_corgi_anim_small_24
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 5
+        width: 706
+        height: 903
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.62268, y: 77.89586}
+        - {x: -7.6226807, y: 67.89586}
+        - {x: -0.62268066, y: 62.89586}
+        - {x: -92.62268, y: -12.104141}
+        - {x: -98.62268, y: -33.10414}
+        - {x: -98.62268, y: -101.10414}
+        - {x: -71.62268, y: -126.10414}
+        - {x: -19.62268, y: -126.10414}
+        - {x: 99.37732, y: -25.104141}
+        - {x: 99.37732, y: 52.89586}
+        - {x: 84.37732, y: 120.89586}
+        - {x: 49.37732, y: 126.89586}
+        - {x: -18.62268, y: 126.89586}
+        - {x: -40.62268, y: 106.89586}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

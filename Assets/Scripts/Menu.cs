@@ -18,6 +18,7 @@ public class Menu : MonoBehaviour {
 	public GameObject doYouReallyScreen;
 	public GameObject enterNameScreen;
 	public GameObject settingsScreen;
+	public GameObject creditScreen;
 	public GameObject logo;
 
 	//Assorted stuff
@@ -240,6 +241,17 @@ public class Menu : MonoBehaviour {
 
 		//tällä hetkellä global score lähetetään vain jos local score on hyvä
 		scoreboardScreen.GetComponent<Scoreboard> ().SaveGlobal (playerScore, player.playerName);
+	}
+
+	public void CreditPressed() {
+		//currentScreen.SetActive (false);
+		SetCurrentScreen (creditScreen);
+		creditScreen.SetActive (true);
+	}
+
+	public void SettingsReturn() {
+		currentScreen.SetActive (false);
+		SetCurrentScreen (settingsScreen);
 	}
 
 	public void ScoreboardReturn() {
