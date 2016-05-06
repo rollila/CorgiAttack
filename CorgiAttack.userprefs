@@ -2,9 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlatformerCharacter2D.cs" Line="179" Column="68" />
+      <File FileName="Assets\Scripts\Menu.cs" Line="232" Column="2" />
+      <File FileName="Assets\Music\credit_for_music.txt" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlatformerCharacter2D.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Tiling.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Menu.cs" Line="69" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
