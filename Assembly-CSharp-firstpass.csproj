@@ -99,6 +99,7 @@
      <None Include="Assets\playerStatStorage.xml" />
      <None Include="Assets\XMLS FOR BUILD\topTenStorage.xml" />
      <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\topTenStorage 1.xml" />
+     <None Include="Assets\topTenStorage.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Music\credit_for_music.txt" />
      <None Include="Assets\XMLS FOR BUILD\playerStatStorage.xml" />
@@ -107,7 +108,6 @@
      <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\playerStatStorage 1.xml" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
-     <None Include="Assets\topTenStorage.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>H:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

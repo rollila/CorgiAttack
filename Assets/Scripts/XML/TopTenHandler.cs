@@ -19,17 +19,23 @@ public class TopTenHandler : MonoBehaviour {
 	
 	}
 
-	public Ranking[] GetTopTen() {
+	public List<Ranking> GetTopTen() {
 		var Stats = StatCollector.Load(Path.Combine(Application.dataPath, topTenXMLfilepath));
 		/*
 		for (int i=0; i < Stats.TopTen.Length; i++) {
 			rank = Stats.TopTen[i];
 			Debug.Log (rank.name + " "+ rank.rank + " "+ rank.score);
 		}*/
-		return Stats.TopTen;
+
+		List<Ranking> TopTen = new List<Ranking> ();
+		foreach (Ranking r in Stats.TopTen) {
+			TopTen.Add (r);
+		}
+			
+		return TopTen;
 	}
 
-	public void StoreTopTen(Ranking[] TopTen) {
+	public void StoreTopTen(List<Ranking> TopTen) {
 		StatCollector collector = new StatCollector ();
 		collector.SetTopTen (TopTen);
 		collector.Save(Path.Combine(Application.dataPath, topTenXMLfilepath));
