@@ -9,9 +9,10 @@ public class LifeHandler : MonoBehaviour {
 	void Awake() {
 		DontDestroyOnLoad (this);
 
-		if (FindObjectsOfType(GetType()).Length > 1)
-		{
-			Destroy(gameObject);
+		if (FindObjectsOfType (GetType ()).Length > 1) {
+			Destroy (gameObject);
+		} else {
+			lives = 3;	
 		}
 	}
 

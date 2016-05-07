@@ -236,7 +236,7 @@ public class Menu : MonoBehaviour {
 			int totalScore = lHandler.GetTotalScore();
 
 			scoreboardScreen.SetActive (true);
-			Ranking[] TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
+			List<Ranking> TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
 			if (TopTen [9].score < totalScore) { //onko score korkeempi ku 10. sija (tällä hetkellä local only)
 				GoodScore (totalScore);
 			} else {
@@ -290,7 +290,7 @@ public class Menu : MonoBehaviour {
 		SetCurrentScreen (goodScoreScreen);
 		goodScoreScreen.SetActive (true);
 		goodScoreScreen.transform.FindChild("Score").GetComponent<Text> ().text = playerScore+"";
-
+		goodScoreScreen.GetComponent<AudioSource> ().Play ();
 		SaveStats (playerScore);
 		Player player = handler.GetStats ();
 		scoreboardScreen.GetComponent<Scoreboard> ().SaveLocal (playerScore, player.playerName);

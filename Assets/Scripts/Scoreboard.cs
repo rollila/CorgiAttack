@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -19,7 +20,7 @@ public class Scoreboard : MonoBehaviour
 	private TopTenHandler _xml;
 
 	//Maybe need global scoreboards?
-	public Ranking[] TopTen;
+	public List<Ranking>TopTen;
 	public List<Score> scores;
 
     void Awake()
@@ -40,7 +41,7 @@ public class Scoreboard : MonoBehaviour
         player.points = points;
     }
 
-	public Ranking[] GetTopTen() {
+	public List<Ranking> GetTopTen() {
 		TopTen = _xml.GetTopTen ();
 		return TopTen;
 	}
@@ -48,7 +49,7 @@ public class Scoreboard : MonoBehaviour
 	public void ResetLocal() {
 		int i = 1;
 		foreach (Ranking r in TopTen) {
-			Ranking rank = new Ranking (i, "cat", 0);
+			Ranking rank = new Ranking ("cat", 0);
 			TopTen [i - 1] = rank;
 			i++;
 		}
@@ -57,24 +58,22 @@ public class Scoreboard : MonoBehaviour
 
 	public void SaveLocal(int playerScore, string playerName) {
 		TopTen = _xml.GetTopTen ();
-		foreach (Ranking r in TopTen) {
-			if (playerScore > r.score) {
-				Ranking rank = new Ranking (r.rank, playerName, playerScore);
-				TopTen [r.rank - 1] = rank;
-				break;
-			}
-		}
+		Ranking rank = new Ranking (playerName, playerScore);
+		TopTen [9] = rank;
+		TopTen.Sort((Ranking x, Ranking y) => { return x.score.CompareTo(y.score); });
+		TopTen.Reverse ();
 		_xml.StoreTopTen (TopTen);
 	}
 
 	public void ShowLocal() {
 		TopTen = _xml.GetTopTen ();
+		int i = 1;
 		foreach (Ranking r in TopTen) {
-			int i = r.rank - 1;
 			Transform ScorePanel = localScoreBoard.transform.Find("ScorePanel (" + i+")");
-			ScorePanel.transform.Find("Rank").GetComponent<Text>().text = r.rank + "";
+			ScorePanel.transform.Find("Rank").GetComponent<Text>().text = i + "";
 			ScorePanel.transform.Find("Score").GetComponent<Text>().text = r.score + "";
 			ScorePanel.transform.Find("Name").GetComponent<Text>().text = r.name;
+			i++;
 		}
 	}
 

@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LifeHandler.cs" />
      <Compile Include="Assets\Scripts\ButterflyPoints.cs" />
      <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
@@ -61,6 +60,7 @@
      <Compile Include="Assets\Scripts\HTTP Library\src\ResponseCallbackDispatcher.cs" />
      <Compile Include="Assets\Scripts\HTTP Library\src\StreamedWWWForm.cs" />
      <Compile Include="Assets\Scripts\HitGround.cs" />
+     <Compile Include="Assets\Scripts\LifeHandler.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\NoDogsSign.cs" />
      <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
@@ -79,6 +79,7 @@
      <None Include="Assets\playerStatStorage.xml" />
      <None Include="Assets\XMLS FOR BUILD\topTenStorage.xml" />
      <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\topTenStorage 1.xml" />
+     <None Include="Assets\topTenStorage.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Music\credit_for_music.txt" />
      <None Include="Assets\XMLS FOR BUILD\playerStatStorage.xml" />
@@ -87,7 +88,6 @@
      <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\playerStatStorage 1.xml" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
-     <None Include="Assets\topTenStorage.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>H:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

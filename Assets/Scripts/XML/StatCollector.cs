@@ -33,8 +33,13 @@ public class StatCollector {
 			
 	}
 
-	public void SetTopTen(Ranking[] TopTen2) {
-		TopTen = TopTen2;
+	public void SetTopTen(List<Ranking> TopTen2) {
+		Ranking[] TT = new Ranking[10];
+		for (int i = 0; i < TopTen2.Count; i++) {
+			TT [i] = TopTen2 [i];
+		}
+
+		TopTen = TT;
 	}
 
 	public void SetPlayers(Player[] p) {

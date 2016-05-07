@@ -5,9 +5,6 @@ using System.Xml.Serialization;
 
 
 public class Ranking {
-	[XmlElement("rank")]
-	public int rank;
-
 	[XmlElement("name")]
 	public string name;
 
@@ -15,8 +12,7 @@ public class Ranking {
 	public int score;
 
 	public Ranking() {}
-	public Ranking(int Rank, string Name, int Score) {
-		rank = Rank;
+	public Ranking(string Name, int Score) {
 		name = Name;
 		score = Score;
 	}
