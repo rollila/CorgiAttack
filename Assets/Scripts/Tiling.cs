@@ -14,7 +14,7 @@ public class Tiling : MonoBehaviour {
 		fixY = 7f; //en saanu muuten paikalleen
 		offCamera = 15f; //spawnaa ulompana
 
-		Instantiate(spawnables[Random.Range(0, 2)], new Vector3(transform.position.x, transform.position.y-fixY, 0-5), Quaternion.identity);
+		Instantiate(spawnables[Random.Range(0, 1)], new Vector3(transform.position.x+1, transform.position.y-fixY, 0-5), Quaternion.identity);
     }
 	
 	// Update is called once per frame

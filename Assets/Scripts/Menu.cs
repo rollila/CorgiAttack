@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
@@ -19,7 +20,12 @@ public class Menu : MonoBehaviour {
 	public GameObject enterNameScreen;
 	public GameObject settingsScreen;
 	public GameObject creditScreen;
+	public GameObject betweenRoundsScreen;
 	public GameObject logo;
+
+	//lives
+	public GameObject LifeScreen;
+	private LifeHandler lHandler;
 
 	//Assorted stuff
 	private GameObject currentScreen;
@@ -37,6 +43,7 @@ public class Menu : MonoBehaviour {
 
 	void Awake() {
 		Time.timeScale = 0; //pause game
+		lHandler = GameObject.Find("LifeHandler").gameObject.GetComponent<LifeHandler>();
 		handler = GetComponent<StatHandler> ();
 		audioS = GetComponent<AudioSource> ();
 	}
@@ -56,6 +63,9 @@ public class Menu : MonoBehaviour {
 		} else {
 			ActivateStartScreen ();
 		}
+
+		//päivitä elämät
+		ChangeLives ();
 	}
 
 	public void EnterName() {
@@ -185,14 +195,60 @@ public class Menu : MonoBehaviour {
 		scoreboardScreen.GetComponent<Scoreboard> ().ShowScores ();
 	}
 
+	public void BetweenRounds() {
+		betweenRoundsScreen.SetActive (true);
+		SetCurrentScreen (betweenRoundsScreen);
+
+		List<int> scores = lHandler.GetScores ();
+
+		for (int i=0; i < scores.Count; i++) {
+			int num = i + 1;
+			Transform ScorePanel = betweenRoundsScreen.transform.Find("Round"+num+"Points");
+			ScorePanel.GetComponent<Text> ().text = scores [i]+"";
+		}
+
+	}
+
+	void ChangeLives() {
+		int livesMissing = 3 - lHandler.GetLives ();
+
+		for (int i = 0; i < livesMissing; i++) {
+			LifeScreen.transform.GetChild(i).GetComponent<Image> ().color = Color.gray;
+		}
+	}
+
+	void ResetLives() {
+		foreach (Transform life in LifeScreen.transform) {
+			life.GetComponent<Image> ().color = Color.white;
+		}
+	}
+
 	public void Death(int playerScore) {
 		Time.timeScale = 0; //pause game, vai jotain muuta?
-		scoreboardScreen.SetActive (true);
-		Ranking[] TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
-		if (TopTen [9].score < playerScore) { //onko score korkeempi ku 10. sija (tällä hetkellä local only)
-			GoodScore (playerScore);
+
+		//elämä vaihtuu
+		lHandler.ReduceLife ();
+		ChangeLives ();
+		lHandler.StoreScore (playerScore);
+
+		if (lHandler.GetLives () == 0) {
+			//lopullinen score
+			int totalScore = lHandler.GetTotalScore();
+
+			scoreboardScreen.SetActive (true);
+			Ranking[] TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
+			if (TopTen [9].score < totalScore) { //onko score korkeempi ku 10. sija (tällä hetkellä local only)
+				GoodScore (totalScore);
+			} else {
+				BadScore (totalScore);
+			}
+
+			//reset lives
+			lHandler.ResetLives ();
+			lHandler.ResetScores ();
 		} else {
-			BadScore (playerScore);
+			//jatkuu
+			BetweenRounds();
 		}
 	}
 
