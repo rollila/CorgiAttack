@@ -2,13 +2,25 @@
 
 TODO:
   - platformit spawnaa suunnitelmallisesti eri tasoissa
-  - musiikki/äänivalintoja (ois kiva saada jotain söpöä haukkumista?)
   - namut/poimittavat
-  - animaatioita vois parantaa...
   - Ehkä bugi: Joskus törmätessä ehkä kuolee kaks kertaa? Ei aina... joskus. Tai sitte en jotenki pysy elämissä kärryillä välillä.
-  - Tällä hetkellä koko peli paketoituna 41Mb, pitää varmaa siivota turhat kuvat ja äänet ja kaikki.
+  
+LOPULLISEEN PALAUTUKSEEN (18.5.) TODO:
+  - TESTAUS: palautusspekseissä lukee että peliä pitäis olevinaan jotenkin myös testata
+  - PAUSE: palautusspekseissä lukee et pitäis olla pause
+  - GAME DESIGN DOCUMENT: mukaanlukien UML-kaaviot
 
 TÄRKEÄÄ: Jos haluaa BUILD/RUN niin pitää ottaa XML-tiedostot "XML FOR BUILD" kansiosta ja pistää cg_Data kansion juureen! Muuten ei toimi! (ne tiedostot siellä on ns "tyhjiä" eli ei esim. mitään pelaajatietoja.
+
+
+.
+.
+.
+.
+.
+.
+
+
 
 Tässä jotain CreativeCommons musia:
 
