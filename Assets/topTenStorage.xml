@@ -18,6 +18,10 @@
       <score>4449</score>
     </Ranking>
     <Ranking>
+      <name>Fluffy</name>
+      <score>4111</score>
+    </Ranking>
+    <Ranking>
       <name>meow2</name>
       <score>4000</score>
     </Ranking>
@@ -30,16 +34,12 @@
       <score>2800</score>
     </Ranking>
     <Ranking>
+      <name>Fluffy</name>
+      <score>2219</score>
+    </Ranking>
+    <Ranking>
       <name>bird</name>
       <score>2000</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>1771</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>1747</score>
     </Ranking>
   </TopTen>
 </StatCollection>
