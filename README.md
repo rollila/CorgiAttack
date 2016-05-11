@@ -4,21 +4,29 @@ TODO:
   - platformit spawnaa suunnitelmallisesti eri tasoissa
   - namut/poimittavat
   - Ehkä bugi: Joskus törmätessä ehkä kuolee kaks kertaa? Ei aina... joskus. Tai sitte en jotenki pysy elämissä kärryillä välillä.
+  - Käynnissä olevan vuoron UI (tällä hetkellä elämät vähenee oikein ja kun kuolee tulee väliruutu, mutta pääruudussa ei ole muutosta)
+  - Hitboxit. Corgin korvien hitboxia ehkä alemmas ja pitää nostaa perhosia ylemmäs koska kovassa vauhdissa niiden yli hyppää
+  - Variable height jump?
   
 LOPULLISEEN PALAUTUKSEEN (18.5.) TODO:
   - TESTAUS: palautusspekseissä lukee että peliä pitäis olevinaan jotenkin myös testata
-  - PAUSE: palautusspekseissä lukee et pitäis olla pause
   - GAME DESIGN DOCUMENT: mukaanlukien UML-kaaviot
 
 TÄRKEÄÄ: Jos haluaa BUILD/RUN niin pitää ottaa XML-tiedostot "XML FOR BUILD" kansiosta ja pistää cg_Data kansion juureen! Muuten ei toimi! (ne tiedostot siellä on ns "tyhjiä" eli ei esim. mitään pelaajatietoja.
 
 
 .
+
 .
+
 .
+
 .
+
 .
+
 .
+
 
 
 
