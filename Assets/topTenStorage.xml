@@ -3,11 +3,23 @@
   <TopTen>
     <Ranking>
       <name>Fluffy</name>
+      <score>5340</score>
+    </Ranking>
+    <Ranking>
+      <name>Fluffy</name>
       <score>5257</score>
     </Ranking>
     <Ranking>
       <name>meow</name>
       <score>5000</score>
+    </Ranking>
+    <Ranking>
+      <name>Fluffy</name>
+      <score>4449</score>
+    </Ranking>
+    <Ranking>
+      <name>Fluffy</name>
+      <score>4111</score>
     </Ranking>
     <Ranking>
       <name>meow2</name>
@@ -22,24 +34,12 @@
       <score>2800</score>
     </Ranking>
     <Ranking>
+      <name>Fluffy</name>
+      <score>2219</score>
+    </Ranking>
+    <Ranking>
       <name>bird</name>
       <score>2000</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>1771</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>1747</score>
-    </Ranking>
-    <Ranking>
-      <name>pidgeon</name>
-      <score>1500</score>
-    </Ranking>
-    <Ranking>
-      <name>sock</name>
-      <score>1000</score>
     </Ranking>
   </TopTen>
 </StatCollection>

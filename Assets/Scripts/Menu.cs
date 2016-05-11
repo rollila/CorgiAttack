@@ -21,6 +21,7 @@ public class Menu : MonoBehaviour {
 	public GameObject settingsScreen;
 	public GameObject creditScreen;
 	public GameObject betweenRoundsScreen;
+	public GameObject pauseScreen;
 	public GameObject logo;
 
 	//lives
@@ -66,6 +67,16 @@ public class Menu : MonoBehaviour {
 
 		//päivitä elämät
 		ChangeLives ();
+	}
+
+	public void PauseGame() {
+		Time.timeScale = 0;
+		pauseScreen.SetActive (true);
+	}
+
+	public void UnpauseGame() {
+		Time.timeScale = 1;
+		pauseScreen.SetActive (false);
 	}
 
 	public void EnterName() {
