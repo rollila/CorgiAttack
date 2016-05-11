@@ -10,11 +10,15 @@ namespace UnityStandardAssets._2D
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
         private bool m_Dash;
-
+		private bool m_Pause;
+		private Canvas canvas;
+		private Menu menu;
 
         private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
+			canvas = GameObject.Find ("Canvas").GetComponent<Canvas>();
+			menu = canvas.GetComponent<Menu> ();
         }
 
 
@@ -32,6 +36,10 @@ namespace UnityStandardAssets._2D
                 m_Dash = CrossPlatformInputManager.GetButtonDown("Dash"); //F
             }
 
+			if (!m_Pause) {
+				m_Pause = CrossPlatformInputManager.GetButtonDown("Pause"); //P
+
+			}
 			//pause button?
         }
 
@@ -39,12 +47,15 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             // Read the inputs.
-            bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
             m_Character.Move(h, m_Dash, m_Jump);
             m_Jump = false;
             m_Dash = false;
+			if (m_Pause) {
+				menu.PauseGame();
+				m_Pause = false;
+			}
         }
     }
 }
