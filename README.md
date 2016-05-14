@@ -12,6 +12,11 @@ LOPULLISEEN PALAUTUKSEEN (18.5.) TODO:
   - TESTAUS: palautusspekseissä lukee että peliä pitäis olevinaan jotenkin myös testata
   - GAME DESIGN DOCUMENT: mukaanlukien UML-kaaviot
 
+Ehdotukset Revieweistä:
+  - Hitaampi vauhdin keräys
+  - Paremmat hitboxit, erikoisesti platform edget
+  - Mahdollisuus vaihtaa nimi
+
 TÄRKEÄÄ: Jos haluaa BUILD/RUN niin pitää ottaa XML-tiedostot "XML FOR BUILD" kansiosta ja pistää cg_Data kansion juureen! Muuten ei toimi! (ne tiedostot siellä on ns "tyhjiä" eli ei esim. mitään pelaajatietoja.
 
 
