@@ -32,6 +32,8 @@ public class Menu : MonoBehaviour {
 	private GameObject currentScreen;
 	private StatHandler handler;
 	private AudioSource audioS;
+	private FirebaseAPI firebase;
+	private Scoreboard scoreboard;
 
 	//Settings
 	private bool moreDoge;
@@ -46,6 +48,8 @@ public class Menu : MonoBehaviour {
 		Time.timeScale = 0; //pause game
 		lHandler = GameObject.Find("LifeHandler").gameObject.GetComponent<LifeHandler>();
 		handler = GetComponent<StatHandler> ();
+		firebase = GetComponent<FirebaseAPI> ();
+		scoreboard = GetComponent<Scoreboard> ();
 		audioS = GetComponent<AudioSource> ();
 	}
 
@@ -62,7 +66,11 @@ public class Menu : MonoBehaviour {
 		if (player.playerName == null) {
 			EnterName ();
 		} else {
-			ActivateStartScreen ();
+			if (!lHandler.GetRoundInProgress ()) {
+				ActivateStartScreen ();
+			} else {
+				Time.timeScale = 1;
+			}
 		}
 
 		//päivitä elämät
@@ -82,6 +90,12 @@ public class Menu : MonoBehaviour {
 	public void EnterName() {
 		enterNameScreen.SetActive (true);
 		SetCurrentScreen (enterNameScreen);
+	}
+
+	public void ChangeNamePressed() {
+		currentScreen.SetActive (false);
+		logo.SetActive(false);
+		EnterName ();
 	}
 
 	public void SubmitName(string name) {
@@ -188,14 +202,14 @@ public class Menu : MonoBehaviour {
 		scoreboardScreen.SetActive (true);
 		scoreMenuScreen.SetActive (true);
 		SetCurrentScreen (scoreboardScreen);
-		scoreboardScreen.GetComponent<FirebaseAPI> ().PreloadScores (); //lataa serveriltä global scoret
+		//firebase.PreloadScores (); //lataa serveriltä global scoret
 	}
 
 	public void LocalPressed() {
 		scoreMenuScreen.SetActive (false);
 		localScreen.SetActive (true);
 		SetCurrentScreen (localScreen);
-		scoreboardScreen.GetComponent<Scoreboard> ().ShowLocal ();
+		scoreboard.ShowLocal ();
 	}
 
 	public void GlobalPressed() {
@@ -203,7 +217,7 @@ public class Menu : MonoBehaviour {
 		scoreMenuScreen.SetActive (false);
 		globalScreen.SetActive (true);
 		SetCurrentScreen (globalScreen);
-		scoreboardScreen.GetComponent<Scoreboard> ().ShowScores ();
+		scoreboard.ShowScores ();
 	}
 
 	public void BetweenRounds() {
@@ -247,16 +261,15 @@ public class Menu : MonoBehaviour {
 			int totalScore = lHandler.GetTotalScore();
 
 			scoreboardScreen.SetActive (true);
-			List<Ranking> TopTen = scoreboardScreen.GetComponent<Scoreboard> ().GetTopTen ();
+			List<Ranking> TopTen = scoreboard.GetTopTen ();
 			if (TopTen [9].score < totalScore) { //onko score korkeempi ku 10. sija (tällä hetkellä local only)
 				GoodScore (totalScore);
 			} else {
 				BadScore (totalScore);
 			}
 
-			//reset lives
-			lHandler.ResetLives ();
-			lHandler.ResetScores ();
+			//reset lives+score+end round
+			lHandler.StartRound ();
 		} else {
 			//jatkuu
 			BetweenRounds();
@@ -304,10 +317,10 @@ public class Menu : MonoBehaviour {
 		goodScoreScreen.GetComponent<AudioSource> ().Play ();
 		SaveStats (playerScore);
 		Player player = handler.GetStats ();
-		scoreboardScreen.GetComponent<Scoreboard> ().SaveLocal (playerScore, player.playerName);
+		scoreboard.SaveLocal (playerScore, player.playerName);
 
 		//tällä hetkellä global score lähetetään vain jos local score on hyvä
-		scoreboardScreen.GetComponent<Scoreboard> ().SaveGlobal (playerScore, player.playerName);
+		scoreboard.SaveGlobal (playerScore, player.playerName);
 	}
 
 	public void CreditPressed() {
