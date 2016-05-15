@@ -2,8 +2,24 @@
 <StatCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TopTen>
     <Ranking>
+      <name>Mila</name>
+      <score>7612</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
+      <score>6163</score>
+    </Ranking>
+    <Ranking>
+      <name>Fluffy</name>
+      <score>5564</score>
+    </Ranking>
+    <Ranking>
       <name>Fluffy</name>
       <score>5340</score>
+    </Ranking>
+    <Ranking>
+      <name>Fluffy</name>
+      <score>5307</score>
     </Ranking>
     <Ranking>
       <name>Fluffy</name>
@@ -15,31 +31,15 @@
     </Ranking>
     <Ranking>
       <name>Fluffy</name>
+      <score>4728</score>
+    </Ranking>
+    <Ranking>
+      <name>Fluffy</name>
+      <score>4456</score>
+    </Ranking>
+    <Ranking>
+      <name>Fluffy</name>
       <score>4449</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>4111</score>
-    </Ranking>
-    <Ranking>
-      <name>meow2</name>
-      <score>4000</score>
-    </Ranking>
-    <Ranking>
-      <name>cat</name>
-      <score>3000</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>2800</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>2219</score>
-    </Ranking>
-    <Ranking>
-      <name>bird</name>
-      <score>2000</score>
     </Ranking>
   </TopTen>
 </StatCollection>

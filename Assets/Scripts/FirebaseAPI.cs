@@ -30,6 +30,7 @@ public class FirebaseAPI : MonoBehaviour
     void Start()
     {
         _board = GetComponent<Scoreboard>();
+		PreloadScores ();
     }
 
     public void TestButton()

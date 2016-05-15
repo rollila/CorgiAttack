@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class LifeHandler : MonoBehaviour {
 	public int lives;
 	public List<int> scores;
+	public bool roundInProgress;
 
 	void Awake() {
 		DontDestroyOnLoad (this);
@@ -12,14 +13,24 @@ public class LifeHandler : MonoBehaviour {
 		if (FindObjectsOfType (GetType ()).Length > 1) {
 			Destroy (gameObject);
 		} else {
-			lives = 3;	
+			StartRound ();
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
 		scores = new List<int> ();
-		lives = 3;	
+		//StartRound ();
+	}
+
+	public bool GetRoundInProgress() {
+		return roundInProgress;
+	}
+
+	public void StartRound() {
+		roundInProgress = false;
+		ResetLives ();
+		ResetScores ();
 	}
 
 	public int GetLives() {
@@ -28,6 +39,7 @@ public class LifeHandler : MonoBehaviour {
 	
 	public void ReduceLife() {
 		lives--;
+		roundInProgress = true;
 	}
 
 	public void ResetLives() {
