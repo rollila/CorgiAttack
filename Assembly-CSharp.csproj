@@ -70,13 +70,14 @@
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
+     <Compile Include="Assets\Scripts\Treat.cs" />
      <Compile Include="Assets\Scripts\UIHandler.cs" />
      <Compile Include="Assets\Scripts\XML\Player.cs" />
      <Compile Include="Assets\Scripts\XML\Ranking.cs" />
      <Compile Include="Assets\Scripts\XML\StatCollector.cs" />
      <Compile Include="Assets\Scripts\XML\StatHandler.cs" />
      <Compile Include="Assets\Scripts\XML\TopTenHandler.cs" />
-     <Compile Include="Assets\erasure.cs" />
+     <Compile Include="Assets\Scripts\erasure.cs" />
      <None Include="Assets\playerStatStorage.xml" />
      <None Include="Assets\XMLS FOR BUILD\topTenStorage.xml" />
      <None Include="Assets\Scripts\XML\storeOriginalXMLJustInCase\topTenStorage 1.xml" />
