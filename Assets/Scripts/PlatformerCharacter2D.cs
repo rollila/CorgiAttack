@@ -9,9 +9,10 @@ namespace UnityStandardAssets._2D
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 15f;
 		[SerializeField] private float m_DJumpForce = 10f;
-		[SerializeField] private float m_DashForce = 100f;  
-		[SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
+		[SerializeField] private float m_DashForce = 150f;  
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
+		[SerializeField] private float m_MaxJump = 15f;
+		[SerializeField] private float m_MiniJump = 5f;
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -41,6 +42,7 @@ namespace UnityStandardAssets._2D
 		public AudioClip jumpSound;
 		public AudioClip collisionSound;
 		public AudioClip dashSound;
+
 
 
         private void Awake()
@@ -115,64 +117,70 @@ namespace UnityStandardAssets._2D
 			return m_Dashing;
 		}
 
-        public void Move(float move, bool dash, bool jump)
+		public void Move(float move, bool dash, bool jump, float jumpTime)
         {
-            //only control the player if grounded or airControl is turned on
-            if (m_Grounded || m_AirControl)
-            {
-                // Reduce the speed if crouching by the crouchSpeed multiplier
-                //move = (crouch ? move*m_CrouchSpeed : move);
+            //Move
+            m_Rigidbody2D.velocity = new Vector2(moveSpeed, m_Rigidbody2D.velocity.y);
+    
 
-                // The Speed animator parameter is set to the absolute value of the horizontal input.
-                //m_Anim.SetFloat("Speed", Mathf.Abs(move));
-
-                // Move the character
-                m_Rigidbody2D.velocity = new Vector2(moveSpeed, m_Rigidbody2D.velocity.y);
-     
-            }
-
-            // If the player should jump...
-			if (m_Grounded && jump && m_Anim.GetBool("Ground") || !m_Doublejump && jump && !m_Grounded)
-            {
+            // DJ
+			if (!m_Doublejump && jump && !m_Grounded) {
 				//sound
 				audioS.PlayOneShot (jumpSound);
 
-				//Doublejump
 				if (!m_Doublejump && !m_Grounded) {
 					m_Doublejump = true;
 					m_Anim.SetBool ("Doublejump", true);
 
-					if (m_Anim.GetBool("Falling")) {
+					if (m_Anim.GetBool ("Falling")) {
 						//kumoaa gravitaation:
-						m_Rigidbody2D.velocity = new Vector2(0f, m_JumpForce);
+						m_Rigidbody2D.velocity = new Vector2 (0f, m_JumpForce);
 					} else {
 						//tönäisee:
-						m_Rigidbody2D.AddForce(new Vector2(0f, m_DJumpForce), ForceMode2D.Impulse);
+						m_Rigidbody2D.AddForce (new Vector2 (0f, m_DJumpForce), ForceMode2D.Impulse);
 					}
 
-					m_Anim.SetBool("Falling", false);
+					m_Anim.SetBool ("Falling", false);
 				}
+			}
 
-				//Jump
-				else if (m_Grounded) {
+			if (m_Grounded && jump && m_Anim.GetBool("Ground")) {
+				//sound
+				audioS.PlayOneShot (jumpSound);
+
+				/* YÄK IHAN KAUHEE
+				float fullJump = 0.3f;
+				if (m_Grounded && !m_Anim.GetBool("Jump")) {
+					m_Grounded = false;
+					m_Anim.SetBool("Ground", false);
+					m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
+					//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
+					float JumpForce = ((m_MaxJump - m_MiniJump) * (jumpTime / fullJump)) + m_MiniJump;
+					if (JumpForce > m_MaxJump) {
+						JumpForce = m_MaxJump;
+					}
+					m_Rigidbody2D.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+					Debug.Log (jumpTime + "  " + JumpForce);
+				}*/
+
+
 	                m_Grounded = false;
 	                m_Anim.SetBool("Ground", false);
 					m_Anim.SetBool("Jump", true); //on mahdollista et tätä ei tartte mut animaatiot vastustaa mua
 					m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
 					//m_Rigidbody2D.velocity = new Vector2(0f, m_JumpForce);
 					//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-				}
+
             }
 
 			//Dash
-			if (dash && !m_Anim.GetBool("Dash"))
-            {
-                m_Anim.SetBool("Dash", true);
-				m_Rigidbody2D.AddForce(new Vector2(m_DashForce, 0f), ForceMode2D.Impulse);
+			if (dash && !m_Anim.GetBool ("Dash")) {
+				m_Anim.SetBool ("Dash", true);
+				m_Rigidbody2D.AddForce (new Vector2 (m_DashForce, 0f), ForceMode2D.Impulse);
 				m_Dashing = true;
-				StartCoroutine (WaitDash());
+				StartCoroutine (WaitDash ());
 				audioS.PlayOneShot (dashSound);
-            }
+			}
         }
 			
 		public void CorgiCollision() {

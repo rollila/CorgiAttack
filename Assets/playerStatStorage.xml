@@ -2,8 +2,8 @@
 <StatCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <PlayerStats>
     <Player name="Mila">
-      <totalPoints>328829</totalPoints>
-      <totalRounds>958</totalRounds>
+      <totalPoints>449191</totalPoints>
+      <totalRounds>1015</totalRounds>
       <highScore>7612</highScore>
       <lessDoge>false</lessDoge>
       <moreDoge>false</moreDoge>

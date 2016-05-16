@@ -24,7 +24,8 @@ public class Tiling : MonoBehaviour {
             Debug.Log("Spawn shit now");
 			Instantiate(spawnables[Random.Range(0, 9)], new Vector3(transform.position.x+offCamera, transform.position.y-fixY, 0-5), Quaternion.identity);
             movedX++;
-			offCamera++;
+			//offCamera++;
+			offCamera += 3;
         }
 
 	

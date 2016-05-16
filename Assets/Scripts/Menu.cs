@@ -68,6 +68,7 @@ public class Menu : MonoBehaviour {
 		} else {
 			if (!lHandler.GetRoundInProgress ()) {
 				ActivateStartScreen ();
+				firebase.PreloadScores ();
 			} else {
 				Time.timeScale = 1;
 			}

@@ -7,11 +7,27 @@
     </Ranking>
     <Ranking>
       <name>Mila</name>
+      <score>6664</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
       <score>6163</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
+      <score>5579</score>
     </Ranking>
     <Ranking>
       <name>Fluffy</name>
       <score>5564</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
+      <score>5500</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
+      <score>5381</score>
     </Ranking>
     <Ranking>
       <name>Fluffy</name>
@@ -24,22 +40,6 @@
     <Ranking>
       <name>Fluffy</name>
       <score>5257</score>
-    </Ranking>
-    <Ranking>
-      <name>meow</name>
-      <score>5000</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>4728</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>4456</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>4449</score>
     </Ranking>
   </TopTen>
 </StatCollection>
