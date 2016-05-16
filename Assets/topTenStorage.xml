@@ -3,7 +3,15 @@
   <TopTen>
     <Ranking>
       <name>Mila</name>
+      <score>7671</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
       <score>7612</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
+      <score>7494</score>
     </Ranking>
     <Ranking>
       <name>Mila</name>
@@ -11,7 +19,15 @@
     </Ranking>
     <Ranking>
       <name>Mila</name>
+      <score>6663</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
       <score>6163</score>
+    </Ranking>
+    <Ranking>
+      <name>Mila</name>
+      <score>5910</score>
     </Ranking>
     <Ranking>
       <name>Mila</name>
@@ -24,22 +40,6 @@
     <Ranking>
       <name>Mila</name>
       <score>5500</score>
-    </Ranking>
-    <Ranking>
-      <name>Mila</name>
-      <score>5381</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>5340</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>5307</score>
-    </Ranking>
-    <Ranking>
-      <name>Fluffy</name>
-      <score>5257</score>
     </Ranking>
   </TopTen>
 </StatCollection>

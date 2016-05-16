@@ -35,6 +35,8 @@ namespace UnityStandardAssets._2D
 		private UIHandler uiHandler;
 		private Canvas canvas;
 		private Menu menu;
+		public float multiplier;
+		public GameObject sparkles;
 
 		//Audio
 		//Pit‰is lˆyt‰‰ parempia ‰‰ni‰
@@ -59,6 +61,7 @@ namespace UnityStandardAssets._2D
 			menu = canvas.GetComponent<Menu> ();
 			prevP = -1f;
 			audioS = GetComponent<AudioSource> ();
+			multiplier = 1f;
         }
 
 
@@ -66,7 +69,7 @@ namespace UnityStandardAssets._2D
         {
             moveSpeed += 0.01f;
             m_Grounded = false;
-            playerScore += 0.1f * moveSpeed;
+			playerScore += 0.1f * moveSpeed * multiplier;
 			uiHandler.UpdateScore((int) playerScore);
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -104,12 +107,20 @@ namespace UnityStandardAssets._2D
 
 		public void AddPoints(int points) {
 			//t‰ss‰ vois lis‰‰ kertoimen
-			uiHandler.AddPoints (points);
-			playerScore += (float)points;
+			float xPoints = points * multiplier;
+			uiHandler.AddPoints ((int)xPoints);
+			playerScore += (float)xPoints;
 		}
 
 		public int GetPoints() {
 			return (int)playerScore;
+		}
+
+		public void SetMultiplier(float value) {
+			multiplier = value;
+			uiHandler.SetMultiplier ((int)value);
+			StartCoroutine (WaitMultiplier ());
+			sparkles.SetActive (true);
 		}
 
 		public bool IsDashing() {
@@ -199,6 +210,13 @@ namespace UnityStandardAssets._2D
 			yield return new WaitForSeconds (0.3f); //pituus
 			m_Anim.SetBool("Dash", false);
 			m_Dashing = false;
+		}
+
+		IEnumerator WaitMultiplier() {
+			yield return new WaitForSeconds (8f); //pituus
+			uiHandler.EmptyMultiplier();
+			multiplier = 1;
+			sparkles.SetActive (false);
 		}
 
     }
