@@ -13,6 +13,7 @@ namespace UnityStandardAssets._2D
 		private bool m_Pause;
 		private Canvas canvas;
 		private Menu menu;
+		private float jumpTime = 0f;
 
         private void Awake()
         {
@@ -24,11 +25,23 @@ namespace UnityStandardAssets._2D
 
         private void Update()
         {
-            if (!m_Jump)
-            {
-                // Read the jump input in Update so button presses aren't missed.
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+
+			/*
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				jumpTime = 0f;
+			}
+
+			if (Input.GetKey (KeyCode.Space)) {
+				jumpTime += Time.deltaTime;
+			}
+
+			if (Input.GetKeyUp (KeyCode.Space)) {
+				m_Jump = true;
+			}*/
+
+			if (!m_Jump) {
+				m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+			}
 
             if (!m_Dash)
             {
@@ -49,7 +62,7 @@ namespace UnityStandardAssets._2D
             // Read the inputs.
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
-            m_Character.Move(h, m_Dash, m_Jump);
+			m_Character.Move(h, m_Dash, m_Jump, jumpTime);
             m_Jump = false;
             m_Dash = false;
 			if (m_Pause) {
